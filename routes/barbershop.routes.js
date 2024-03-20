@@ -5,8 +5,7 @@ const {
     getOneBarbershop,
     createOneBarbershop,
     editOneBarbershop,
-
-
+    deleteOneBarbershop
 } = require('../controllers/barbershop.controller')
 
 
