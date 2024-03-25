@@ -8,9 +8,10 @@ const app = express();
 
 require("./config")(app);
 
+
 const indexRoutes = require("./routes/index.routes.js")
 app.use("/api", indexRoutes);
 
-require("./error-handling")(app);
+// require("./error-handling")(app);
 
 module.exports = app

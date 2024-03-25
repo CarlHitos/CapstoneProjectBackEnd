@@ -1,5 +1,5 @@
 const { Types } = require('mongoose');
-const Appointment = require('../models/appointment');
+const Appointment = require('../models/appointment.model');
 
 const getAllAppointment = async (req, res, next) => {
     try {
@@ -15,21 +15,32 @@ const createOneAppointment = async (req, res, next) => {
         barber,
         customer,
         date,
-        service
+        service,
+        price,
+        email,
+        phone,
+        notes
     } = req.body;
     try {
-        if (!barber || !customer || !date || !service) {
-            return res.status(400).json({ msg: 'Porfavor rellena todos los campos' });
+        if (!barber || !customer || !date || !service || !price || !email || !phone) {
+            return res.status(400).json({ msg: 'Por favor, completa todos los campos requeridos' });
         }
 
-        await Appointment.create({
+        const newAppointment = await Appointment.create({
             barber,
             customer,
             date,
-            service
+            service,
+            price,
+            email,
+            phone,
+            notes
         });
 
-        res.sendStatus(201);
+        res.status(201).json({
+            msg: 'Cita creada exitosamente',
+            appointment: newAppointment
+        });
     } catch (err) {
         next(err);
     }
@@ -38,6 +49,11 @@ const createOneAppointment = async (req, res, next) => {
 const getInfoAppointment = async (req, res, next) => {
     try {
         const appointment = await Appointment.findById(req.params.id);
+
+        if (!Types.ObjectId.isValid(appointment)) {
+            return res.status(400).json({ msg: 'Invalid appointment id!' });
+        }
+
         if (appointment == null) {
             return res.status(404).json({ message: 'Cita no encontrada' });
         }
