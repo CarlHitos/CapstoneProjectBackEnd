@@ -1,5 +1,7 @@
 const { Types } = require('mongoose');
 const Appointment = require('../models/appointment.model');
+const Customer = require('../models/customer.model');
+const Service = require('../models/service.model');
 
 const getAllAppointment = async (req, res, next) => {
     try {
@@ -11,53 +13,72 @@ const getAllAppointment = async (req, res, next) => {
 };
 
 const createOneAppointment = async (req, res, next) => {
-    const {
-        barber,
-        customer,
-        date,
-        service,
-        price,
-        email,
-        phone,
-        notes
-    } = req.body;
     try {
-        if (!barber || !customer || !date || !service || !price || !email || !phone) {
-            return res.status(400).json({ msg: 'Por favor, completa todos los campos requeridos' });
+        const serviceIdQuery = {
+            _id: req.body.service,
         }
 
-        const newAppointment = await Appointment.create({
-            barber,
-            customer,
-            date,
-            service,
-            price,
-            email,
-            phone,
-            notes
+        const service = await Service.findById(serviceIdQuery);
+
+        const dateStart = new Date(req.body.date);
+        const dateEnd = new Date(dateStart.getTime() + service.duration * 60000);
+
+        const appointmentOverlapQuery = {
+            barber: req.body.barber,
+            $or: [
+                { date: { $gte: dateStart, $lt: dateEnd } },
+                { dateEnd: { $gt: dateStart, $lte: dateEnd } }
+            ]
+        };
+
+        const existingAppointments = await Appointment.find(appointmentOverlapQuery);
+
+        if (existingAppointments.length > 0) {
+            return res.status(400).json({ error: 'Ya hay una cita programada para esta hora y fecha.' });
+        }
+
+        let customer = await Customer.findById(req.body._id);
+        if (!customer) {
+
+            customer = await Customer.create({
+                _id: req.body._id,
+                customerName: req.body.customerName,
+                customerPhone: req.body.customerPhone
+            });
+        }
+
+        await Appointment.create({
+            barber: req.body.barber,
+            customer: customer._id,
+            date: dateStart,
+            dateEnd: dateEnd,
+            service: req.body.service,
+            status: req.body.status,
+            notes: req.body.notes
         });
 
-        res.status(201).json({
-            msg: 'Cita creada exitosamente',
-            appointment: newAppointment
-        });
+        res.sendStatus(201);
     } catch (err) {
         next(err);
     }
 };
 
+
 const getInfoAppointment = async (req, res, next) => {
     try {
-        const appointment = await Appointment.findById(req.params.id);
+        const { appointment_id } = req.params;
 
-        if (!Types.ObjectId.isValid(appointment)) {
+        if (!Types.ObjectId.isValid(appointment_id)) {
             return res.status(400).json({ msg: 'Invalid appointment id!' });
         }
+        
+        const appointment = await Appointment.findById(appointment_id);
 
-        if (appointment == null) {
-            return res.status(404).json({ message: 'Cita no encontrada' });
+        if (!appointment) {
+            return res.status(404).json({ msg: 'Appointment not found!' });
         }
-        res.json(appointment);
+        
+        res.status(200).json(appointment);
     } catch (err) {
         next(err);
     }

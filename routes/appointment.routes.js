@@ -10,7 +10,7 @@ const {
 
 router.get('/getAppointments', getAllAppointment);
 router.post('/createAppointment', createOneAppointment);
-router.get('/Appointment/:appointment_id', getInfoAppointment);
-router.delete('/Appointment/:appointment_id', deleteOneAppointment);
+router.get('/getInfo/:appointment_id', getInfoAppointment);
+router.delete('/delete/:appointment_id', deleteOneAppointment);
 
 module.exports = router;

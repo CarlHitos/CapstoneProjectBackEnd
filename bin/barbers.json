@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Barbero1",
+        "email": "barbero1@example.com",
+        "phone": "1234567890",
+        "schedule": "9am-5pm"
+    },
+    {
+        "name": "Barbero2",
+        "email": "barbero2@example.com",
+        "phone": "0987654321",
+        "schedule": "10am-6pm"
+    },
+    {
+        "name": "Barbero3",
+        "email": "barbero3@example.com",
+        "phone": "1112223333",
+        "schedule": "8am-4pm"
+    },
+    {
+        "name": "Barbero4",
+        "email": "barbero4@example.com",
+        "phone": "4445556666",
+        "schedule": "11am-7pm"
+    },
+    {
+        "name": "Barbero5",
+        "email": "barbero5@example.com",
+        "phone": "7778889999",
+        "schedule": "7am-3pm"
+    }
+]

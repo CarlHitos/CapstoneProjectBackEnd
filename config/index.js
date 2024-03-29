@@ -1,6 +1,6 @@
 const express = require('express');
 
-// const logger = require('morgan');
+const logger = require('morgan');
 
 const cookieParser = require('cookie-parser');
 
@@ -17,6 +17,9 @@ module.exports = (app) => {
             credentials: true,
         })
     );
+
+    
+    app.use(logger('dev'));
 
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
