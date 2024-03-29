@@ -2,6 +2,8 @@ const { Types } = require('mongoose');
 const Appointment = require('../models/appointment.model');
 const Customer = require('../models/customer.model');
 const Service = require('../models/service.model');
+const Barber = require('../models/barber.model');
+const moment = require('moment');
 
 const getAllAppointment = async (req, res, next) => {
     try {
@@ -22,6 +24,28 @@ const createOneAppointment = async (req, res, next) => {
 
         const dateStart = new Date(req.body.date);
         const dateEnd = new Date(dateStart.getTime() + service.duration * 60000);
+
+        const barberData = await Barber.findById(req.body.barber);
+        if (!barberData) {
+            return res.status(404).json({ error: 'Barber not found' });
+        }
+
+        const appointmentDay = new Date(dateStart).toLocaleDateString('en-US', { weekday: 'long' });
+        if (!barberData.schedule.days.includes(appointmentDay)) {
+            return res.status(400).json({ error: 'El barbero no está disponible en este día.' });
+        }
+
+        const appointmentTime = moment.utc(dateStart).format('HH:mm');
+        const scheduleStart = barberData.schedule.hours.start;
+        const scheduleEnd = barberData.schedule.hours.end;
+    
+        if (moment(appointmentTime, 'HH:mm').isBefore(moment(scheduleStart, 'HH:mm')) || moment(appointmentTime, 'HH:mm').isAfter(moment(scheduleEnd, 'HH:mm'))) {
+            return res.status(400).json({ error: 'El barbero no está disponible en este horario.' });
+        }
+
+        if (appointmentTime < scheduleStart || appointmentTime >= scheduleEnd) {
+            return res.status(400).json({ error: 'El barbero no está disponible en este horario.' });
+        }
 
         const appointmentOverlapQuery = {
             barber: req.body.barber,
@@ -71,13 +95,13 @@ const getInfoAppointment = async (req, res, next) => {
         if (!Types.ObjectId.isValid(appointment_id)) {
             return res.status(400).json({ msg: 'Invalid appointment id!' });
         }
-        
+
         const appointment = await Appointment.findById(appointment_id);
 
         if (!appointment) {
             return res.status(404).json({ msg: 'Appointment not found!' });
         }
-        
+
         res.status(200).json(appointment);
     } catch (err) {
         next(err);

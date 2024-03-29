@@ -18,7 +18,13 @@ const barberSchema = new Schema(
             trim: true
         },
         schedule: {
-            type: String,
+            type: {
+                days: [String],
+                hours: {
+                    start: String, 
+                    end: String   
+                }
+            },
             required: [true, "El horario del barbero es obligatorio"]
         }
     },
