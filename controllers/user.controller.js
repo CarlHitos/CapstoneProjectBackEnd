@@ -34,6 +34,7 @@ const editUserProfile = async (req, res, next) => {
         if (!user) {
             return res.status(404).json({ message: 'Usero no encontrado' });
         }
+
         res.json(user);
     } catch (error) {
         next(error);
@@ -141,7 +142,7 @@ const cancelOneAppointment = async (req, res, next) => {
         //     return res.status(403).json({ message: 'Unauthorized' });
         // }
 
-        await Appointment.findByIdAndDelete(appointment_id);
+        await Appointment.findByIdAndDelete(appointment);
 
         res.json({ message: 'Cita cancelada por el barbero' });
     } catch (error) {

@@ -26,7 +26,7 @@ const signup = async (req, res, next) => {
 
 const login = async (req, res) => {
   res.json({
-    token: jwt.sign({ user: req.user._id, rol: 'Admin' }, secret , { expiresIn: '1d' }),
+    token: jwt.sign({ user: req.user._id, rol: 'admin' }, secret , { expiresIn: '1d' }),
   });
 };
 

@@ -1,16 +1,18 @@
-// const router = require('express').Router();
+const router = require('express').Router();
 
-// const {
-//     getAllCustomers,
-//     getOneCustomer,
-//     editOneCustomer,
-//     deleteOneCustomer
-// } = require('../controllers/customer.controller')
+const {
+    getAllCustomers,
+    getOneCustomer,
+    editOneCustomer,
+    deleteOneCustomer,
+    cancelAppointment
+} = require('../controllers/customer.controller')
 
 
-// router.get('/getAllCustomers,', getAllCustomers);
-// router.post('/getOneCustomer/:customer_id', getOneCustomer);
-// router.get('/editOneCustomer/:customer_id', editOneCustomer);
-// router.delete('/deleteOneCustomer/:customer_id', deleteOneCustomer);
+router.get('/getAllCustomers,', getAllCustomers);
+router.post('/getOneCustomer/:customer_id', getOneCustomer);
+router.put('/editOneCustomer/:customer_id', editOneCustomer);
+router.delete('/deleteOneCustomer/:customer_id', deleteOneCustomer);
+router.delete('/cancelAppointment/:appointment_id', cancelAppointment);
 
-// module.exports = router;
+module.exports = router;

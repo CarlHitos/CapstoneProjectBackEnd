@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const scheduleSchema = require('./schema.model')
+const scheduleSchema = require('./schedule.model')
 
 const userSchema = new Schema(
   {
@@ -33,6 +33,11 @@ const userSchema = new Schema(
     password: {
       salt: { type: String, required: true },
       hash: { type: String, required: true },
+    },
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user',
     },
     avatar: {
       type: String,
