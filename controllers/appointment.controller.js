@@ -2,7 +2,7 @@ const { Types } = require('mongoose');
 const Appointment = require('../models/appointment.model');
 const Customer = require('../models/customer.model');
 const Service = require('../models/service.model');
-const Barber = require('../models/barber.model');
+const User = require('../models/user.model');
 const moment = require('moment');
 
 const getAllAppointment = async (req, res, next) => {
@@ -25,30 +25,26 @@ const createOneAppointment = async (req, res, next) => {
         const dateStart = new Date(req.body.date);
         const dateEnd = new Date(dateStart.getTime() + service.duration * 60000);
 
-        const barberData = await Barber.findById(req.body.barber);
-        if (!barberData) {
-            return res.status(404).json({ error: 'Barber not found' });
+        const userData = await User.findById(req.body.user);
+        if (!userData) {
+            return res.status(404).json({ error: 'User not found' });
         }
 
         const appointmentDay = new Date(dateStart).toLocaleDateString('en-US', { weekday: 'long' });
-        if (!barberData.schedule.days.includes(appointmentDay)) {
+        if (!userData.schedule.days.includes(appointmentDay)) {
             return res.status(400).json({ error: 'El barbero no está disponible en este día.' });
         }
 
         const appointmentTime = moment.utc(dateStart).format('HH:mm');
-        const scheduleStart = barberData.schedule.hours.start;
-        const scheduleEnd = barberData.schedule.hours.end;
+        const scheduleStart = userData.schedule.hours.start;
+        const scheduleEnd = userData.schedule.hours.end;
     
         if (moment(appointmentTime, 'HH:mm').isBefore(moment(scheduleStart, 'HH:mm')) || moment(appointmentTime, 'HH:mm').isAfter(moment(scheduleEnd, 'HH:mm'))) {
             return res.status(400).json({ error: 'El barbero no está disponible en este horario.' });
         }
 
-        if (appointmentTime < scheduleStart || appointmentTime >= scheduleEnd) {
-            return res.status(400).json({ error: 'El barbero no está disponible en este horario.' });
-        }
-
         const appointmentOverlapQuery = {
-            barber: req.body.barber,
+            user: req.body.user,
             $or: [
                 { date: { $gte: dateStart, $lt: dateEnd } },
                 { dateEnd: { $gt: dateStart, $lte: dateEnd } }
@@ -72,7 +68,7 @@ const createOneAppointment = async (req, res, next) => {
         }
 
         await Appointment.create({
-            barber: req.body.barber,
+            user: req.body.user,
             customer: customer._id,
             date: dateStart,
             dateEnd: dateEnd,

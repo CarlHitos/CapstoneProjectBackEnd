@@ -2,9 +2,9 @@ const { Schema, model } = require("mongoose");
 
 const appointmentSchema = new Schema(
     {
-        barber: {
+        user: {
             type: Schema.Types.ObjectId,
-            ref: "Barber",
+            ref: "User",
             required: [true, "El barbero es obligatorio"]
         },
         customer: {

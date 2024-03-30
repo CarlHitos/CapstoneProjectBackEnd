@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const scheduleSchema = require('./schema.model')
 
 const userSchema = new Schema(
   {
@@ -19,6 +20,15 @@ const userSchema = new Schema(
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
         'Choose a valid email',
       ],
+    },
+    phone: {
+      type: String,
+      required: [true, "A phone number is needed!"],
+      trim: true
+    },
+    schedule: {
+      type: scheduleSchema,
+      required: [true, "The schedule is needed!"]
     },
     password: {
       salt: { type: String, required: true },
