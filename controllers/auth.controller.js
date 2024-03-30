@@ -1,6 +1,7 @@
 const User = require('../models/user.model');
 const { creaPass } = require('../utils/auth');
 const jwt = require('jsonwebtoken');
+const secret = process.env.JWT_SECRET;
 
 const signup = async (req, res, next) => {
   try {
@@ -25,7 +26,7 @@ const signup = async (req, res, next) => {
 
 const login = async (req, res) => {
   res.json({
-    token: jwt.sign({ user: req.user._id, rol: 'Admin' }, 'secreto', { expiresIn: '1d' }),
+    token: jwt.sign({ user: req.user._id, rol: 'Admin' }, secret , { expiresIn: '1d' }),
   });
 };
 

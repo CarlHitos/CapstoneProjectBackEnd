@@ -3,7 +3,7 @@ const usernameMiddleware = (req, res, next) => {
     if (!req.user) {
       return res.sendStatus(401);
     }
-    if (req.user.username !== 'Pepe') {
+    if (req.user.username !== 'Administrator') {
       return res.sendStatus(403);
     }
     next();
