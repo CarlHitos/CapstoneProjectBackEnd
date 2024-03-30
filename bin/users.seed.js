@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const { creaPass } = require('../utils/auth');
 const users = require('./users.json');
 
 (async () => {
@@ -20,8 +21,13 @@ const users = require('./users.json');
         try {
             await User.deleteMany();
             console.log('DB cleaned');
+
+            const usersWithHashedPasswords = users.map(user => ({
+                ...user,
+                password: creaPass(user.password)
+            }));
     
-            const usersDb = await User.insertMany(users);
+            const usersDb = await User.insertMany(usersWithHashedPasswords);
             console.log(`Successful DB Seed with ${usersDb.length} users!`);
         } catch (error) {
             console.log('error', error);

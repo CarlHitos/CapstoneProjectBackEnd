@@ -10,10 +10,7 @@
                 "end": "17:00"
             }
         },
-        "password": {
-            "salt": "salt1",
-            "hash": "hash1"
-        }
+        "password": "P4$$B4rb3r1"
     },
     {
         "username": "Barbero2",
@@ -26,10 +23,7 @@
                 "end": "18:00"
             }
         },
-        "password": {
-            "salt": "salt2",
-            "hash": "hash2"
-        }
+        "password": "P4$$B4rb3r2"
     },
     {
         "username": "Barbero3",
@@ -42,10 +36,7 @@
                 "end": "16:00"
             }
         },
-        "password": {
-            "salt": "salt3",
-            "hash": "hash3"
-        }
+        "password": "P4$$B4rb3r3"
     },
     {
         "username": "Barbero4",
@@ -58,10 +49,7 @@
                 "end": "17:00"
             }
         },
-        "password": {
-            "salt": "salt4",
-            "hash": "hash4"
-        }
+        "password": "P4$$B4rb3r4"
     },
     {
         "username": "Barbero5",
@@ -74,9 +62,6 @@
                 "end": "17:00"
             }
         },
-        "password": {
-            "salt": "salt5",
-            "hash": "hash5"
-        }
+        "password": "P4$$B4rb3r5"
     }
 ]

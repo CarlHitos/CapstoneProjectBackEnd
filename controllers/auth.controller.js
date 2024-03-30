@@ -13,9 +13,11 @@ const signup = async (req, res, next) => {
       email: req.body.email,
       password: passwordCrypt,
       username: req.body.username,
+      phone: req.body.phone,
+      schedule: req.body.schedule,
       avatar: req.body.avatar || undefined,
     });
-    res.json({ error: false, contendio: result });
+    res.json({ error: false, contenido: result });
   } catch (error) {
     next(error)
   }
