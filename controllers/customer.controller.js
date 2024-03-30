@@ -2,8 +2,6 @@ const { Types } = require("mongoose");
 const Customer = require("../models/customer.model");
 const Appointment = require("../models/appointment.model");
 
-
-
 const getAllCustomers = async (req, res, next) => {
     try {
         const customers = await Customer.find();
@@ -106,4 +104,4 @@ module.exports = {
     editOneCustomer,
     deleteOneCustomer,
     cancelAppointment
-}
+};

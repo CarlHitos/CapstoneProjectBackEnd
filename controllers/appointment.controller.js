@@ -61,7 +61,7 @@ const createOneAppointment = async (req, res, next) => {
         if (!customer) {
 
             customer = await Customer.create({
-                _id: req.body._id,
+                customerEmail: req.body.customerEmail,
                 customerName: req.body.customerName,
                 customerPhone: req.body.customerPhone
             });
@@ -69,7 +69,7 @@ const createOneAppointment = async (req, res, next) => {
 
         await Appointment.create({
             user: req.body.user,
-            customer: customer._id,
+            customer: req.body.customerEmail,
             date: dateStart,
             dateEnd: dateEnd,
             service: req.body.service,

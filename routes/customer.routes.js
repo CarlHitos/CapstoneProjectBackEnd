@@ -9,8 +9,8 @@ const {
 } = require('../controllers/customer.controller')
 
 
-router.get('/getAllCustomers,', getAllCustomers);
-router.post('/getOneCustomer/:customer_id', getOneCustomer);
+router.get('/getAllCustomers', getAllCustomers);
+router.get('/getOneCustomer/:customer_id', getOneCustomer);
 router.put('/editOneCustomer/:customer_id', editOneCustomer);
 router.delete('/deleteOneCustomer/:customer_id', deleteOneCustomer);
 router.delete('/cancelAppointment/:appointment_id', cancelAppointment);

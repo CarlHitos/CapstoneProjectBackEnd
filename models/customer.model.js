@@ -2,9 +2,11 @@ const { Schema, model } = require("mongoose");
 
 const customerSchema = new Schema(
     {
-        _id: {
-            type: String, 
-            required: [true, "El correo electrónico del cliente es obligatorio"],
+        customerEmail: {
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true,
             trim: true
         },
         customerName: {
@@ -14,13 +16,14 @@ const customerSchema = new Schema(
         },
         customerPhone: {
             type: String,
+            unique: true,
             required: [true, "El teléfono del cliente es obligatorio"],
             trim: true
         }
     },
     {
         timestamps: true,
-        versionKey: false 
+        versionKey: false
     }
 );
 
