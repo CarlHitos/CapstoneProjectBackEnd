@@ -1,0 +1,39 @@
+{
+	"id": "4b1a65a1-d74d-45ae-9b9f-f6823312dd5a",
+	"name": "Barbershop_Enviroment",
+	"values": [
+		{
+			"key": "APPOINTMENT_URL",
+			"value": "http://localhost:3001/api/appointment",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "USER_URL",
+			"value": "http://localhost:3001/api/user",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "AUTH_URL",
+			"value": "http://localhost:3001/api/auth",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "CUSTOMER_URL",
+			"value": "http://localhost:3001/api/customer",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "SERVICE_URL",
+			"value": "http://localhost:3001/api/services",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-03-30T21:49:48.939Z",
+	"_postman_exported_using": "Postman/10.24.1"
+}

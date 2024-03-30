@@ -1,0 +1,2717 @@
+{
+	"info": {
+		"_postman_id": "0fb8c297-1335-4d75-a7ed-abb3a223d4e8",
+		"name": "CapstoneProjectBackendBarbershop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32259775"
+	},
+	"item": [
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "GetAppointments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{APPOINTMENT_URL}}/getAppointments",
+							"host": [
+								"{{APPOINTMENT_URL}}"
+							],
+							"path": [
+								"getAppointments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/getAppointments",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"getAppointments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "307"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"133-ii4N0183Mn3Pg094X7IGhEH3DwA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 19:31:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6607161c444527f3171e1990\",\n        \"user\": \"6607088bc9fa5e1ce0ef3ba8\",\n        \"customer\": \"caloncho@gmail.com\",\n        \"date\": \"2024-04-03T09:30:00.000Z\",\n        \"dateEnd\": \"2024-04-03T10:00:00.000Z\",\n        \"service\": \"6607088a73ee5d619a6eab9d\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2024-03-29T19:27:24.293Z\",\n        \"updatedAt\": \"2024-03-29T19:27:24.293Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "CreateAppointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "660722cd2c6007e148c66236",
+									"description": "ID válido de un barbero existente en la BD",
+									"type": "text"
+								},
+								{
+									"key": "customerEmail",
+									"value": "caloncho@gmail.com",
+									"description": "ID válido de un cliente existente en la BD (Correo electronico)",
+									"type": "text"
+								},
+								{
+									"key": "customerName",
+									"value": "Carlos",
+									"description": "Nombre del cliente",
+									"type": "text"
+								},
+								{
+									"key": "customerPhone",
+									"value": "643643643",
+									"description": "Telefono del cliente",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2024-04-03T10:00:00.000Z",
+									"description": "Fecha y hora de la reserva en formato UTC",
+									"type": "text"
+								},
+								{
+									"key": "service",
+									"value": "6607088a73ee5d619a6eab9f",
+									"description": "ID valido de un servicio existente en la BD",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{APPOINTMENT_URL}}/createAppointment",
+							"host": [
+								"{{APPOINTMENT_URL}}"
+							],
+							"path": [
+								"createAppointment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "user",
+											"value": "66084b972c6b047e4ecf4f7b",
+											"description": "ID válido de un barbero existente en la BD",
+											"type": "text"
+										},
+										{
+											"key": "customerEmail",
+											"value": "cliente@gmail.com",
+											"description": "ID válido de un cliente existente en la BD (Correo electronico)",
+											"type": "text"
+										},
+										{
+											"key": "customerName",
+											"value": "Cliente Prueba",
+											"description": "Nombre del cliente",
+											"type": "text"
+										},
+										{
+											"key": "customerPhone",
+											"value": "643643643",
+											"description": "Telefono del cliente",
+											"type": "text"
+										},
+										{
+											"key": "date",
+											"value": "2024-04-03T10:00:00.000Z",
+											"description": "Fecha y hora de la reserva en formato UTC",
+											"type": "text"
+										},
+										{
+											"key": "service",
+											"value": "6607088a73ee5d619a6eab9f",
+											"description": "ID valido de un servicio existente en la BD",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/createAppointment",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"createAppointment"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 19:19:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Created"
+						},
+						{
+							"name": "Out_Of_Schedule",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "user",
+											"value": "66084b972c6b047e4ecf4f7b",
+											"description": "ID válido de un barbero existente en la BD",
+											"type": "text"
+										},
+										{
+											"key": "customerEmail",
+											"value": "cliente@gmail.com",
+											"description": "ID válido de un cliente existente en la BD (Correo electronico)",
+											"type": "text"
+										},
+										{
+											"key": "customerName",
+											"value": "Cliente Prueba",
+											"description": "Nombre del cliente",
+											"type": "text"
+										},
+										{
+											"key": "customerPhone",
+											"value": "643643643",
+											"description": "Telefono del cliente",
+											"type": "text"
+										},
+										{
+											"key": "date",
+											"value": "2024-04-03T08:00:00.000Z",
+											"description": "Fecha y hora de la reserva en formato UTC",
+											"type": "text"
+										},
+										{
+											"key": "service",
+											"value": "6607088a73ee5d619a6eab9f",
+											"description": "ID valido de un servicio existente en la BD",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/createAppointment",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"createAppointment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-X/4ueeDWnhNsypEBgu+WQxDjLP8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 19:22:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"El barbero no está disponible en este horario.\"\n}"
+						},
+						{
+							"name": "Check_Overlap",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "user",
+											"value": "66084b972c6b047e4ecf4f7b",
+											"description": "ID válido de un barbero existente en la BD",
+											"type": "text"
+										},
+										{
+											"key": "customerEmail",
+											"value": "cliente@gmail.com",
+											"description": "ID válido de un cliente existente en la BD (Correo electronico)",
+											"type": "text"
+										},
+										{
+											"key": "customerName",
+											"value": "Cliente Prueba",
+											"description": "Nombre del cliente",
+											"type": "text"
+										},
+										{
+											"key": "customerPhone",
+											"value": "643643643",
+											"description": "Telefono del cliente",
+											"type": "text"
+										},
+										{
+											"key": "date",
+											"value": "2024-04-03T10:30:00.000Z",
+											"description": "Fecha y hora de la reserva en formato UTC",
+											"type": "text"
+										},
+										{
+											"key": "service",
+											"value": "6607088a73ee5d619a6eab9f",
+											"description": "ID valido de un servicio existente en la BD",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/createAppointment",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"createAppointment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-TFjGlOT5K94ovXNXf0PzT+0y8XA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 19:25:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Ya hay una cita programada para esta hora y fecha.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetInfoAppointment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APPOINTMENT_URL}}/getInfo/:appointment_id",
+							"host": [
+								"{{APPOINTMENT_URL}}"
+							],
+							"path": [
+								"getInfo",
+								":appointment_id"
+							],
+							"variable": [
+								{
+									"key": "appointment_id",
+									"value": "6607161c444527f3171e199"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/getInfo/:appointment_id",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"getInfo",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "6607161c444527f3171e1990"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "305"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"131-+X1WzlKHUOqDkY8hVl+k6rpa8fY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 19:39:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6607161c444527f3171e1990\",\n    \"user\": \"6607088bc9fa5e1ce0ef3ba8\",\n    \"customer\": \"caloncho@gmail.com\",\n    \"date\": \"2024-04-03T09:30:00.000Z\",\n    \"dateEnd\": \"2024-04-03T10:00:00.000Z\",\n    \"service\": \"6607088a73ee5d619a6eab9d\",\n    \"status\": \"pending\",\n    \"createdAt\": \"2024-03-29T19:27:24.293Z\",\n    \"updatedAt\": \"2024-03-29T19:27:24.293Z\"\n}"
+						},
+						{
+							"name": "InvalidID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/getInfo/:appointment_id",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"getInfo",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "6607161c444527f3171e199"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-exiBV2BytSZiZjDSqTXvLq/OoKY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 19:40:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Invalid appointment id!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteAppointment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{APPOINTMENT_URL}}/delete/:appointment_id",
+							"host": [
+								"{{APPOINTMENT_URL}}"
+							],
+							"path": [
+								"delete",
+								":appointment_id"
+							],
+							"variable": [
+								{
+									"key": "appointment_id",
+									"value": "6607161c444527f3171e1990"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "InvalidID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/delete/:appointment_id",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"delete",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "6607161c444527f3171e199"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-exiBV2BytSZiZjDSqTXvLq/OoKY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 19:40:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Invalid appointment id!\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/delete/:appointment_id",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"delete",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "6607161c444527f3171e1990"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-OEyQR6L9csHxK/8vqcFE0zfyJdQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 19:41:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Appointment successfully deleted!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users(Barbers)",
+			"item": [
+				{
+					"name": "GetUserProfile(Barber)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{USER_URL}}/getUserProfile/:barber_id",
+							"host": [
+								"{{USER_URL}}"
+							],
+							"path": [
+								"getUserProfile",
+								":barber_id"
+							],
+							"variable": [
+								{
+									"key": "barber_id",
+									"value": "660722cd2c6007e148c6623"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{USER_URL}}/getUserProfile/:barber_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"getUserProfile",
+										":barber_id"
+									],
+									"variable": [
+										{
+											"key": "barber_id",
+											"value": "660722cd2c6007e148c6623"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-iD7Sau6oSEMHUP4HD7ynPYO+iGc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 20:22:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"660722cd2c6007e148c66236\",\n    \"username\": \"Barbero1\",\n    \"email\": \"barbero1@example.com\",\n    \"phone\": \"1234567890\",\n    \"schedule\": {\n        \"hours\": {\n            \"start\": \"09:00\",\n            \"end\": \"17:00\"\n        },\n        \"days\": [\n            \"Monday\",\n            \"Tuesday\",\n            \"Wednesday\",\n            \"Thursday\",\n            \"Friday\",\n            \"Saturday\"\n        ]\n    },\n    \"avatar\": \"https://static-00.iconduck.com/assets.00/avatar-default-icon-2048x2048-h6w375ur.png\",\n    \"createdAt\": \"2024-03-29T20:21:33.477Z\",\n    \"updatedAt\": \"2024-03-29T20:21:33.477Z\",\n    \"id\": \"660722cd2c6007e148c66236\"\n}"
+						},
+						{
+							"name": "InvalidID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{USER_URL}}/getUserProfile/:barber_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"getUserProfile",
+										":barber_id"
+									],
+									"variable": [
+										{
+											"key": "barber_id",
+											"value": "660722cd2c6007e148c6623"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-LWm8wmGs8eDGSYfYNiO/6U8O5UM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 20:27:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid user id\"\n}"
+						}
+					]
+				},
+				{
+					"name": "EditUserProfile(Barber)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "miloca@gmail.com",
+									"description": "Modificamos el email del barbero",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Camilo",
+									"description": "Modificamos el nombre del barbero",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "600600600",
+									"description": "Modificamos el Numero de telefeno del barbero",
+									"type": "text"
+								},
+								{
+									"key": "schedule.hours.start",
+									"value": "09:00",
+									"description": "Modificamos su hora de inicio de jornada",
+									"type": "text"
+								},
+								{
+									"key": "schedule.hours.end",
+									"value": "17:00",
+									"description": "Modificamos su hora de fin de jornada",
+									"type": "text"
+								},
+								{
+									"key": "schedule.days[0]",
+									"value": "Monday",
+									"description": "Modificamos los dias de trabajo (Lunes)",
+									"type": "text"
+								},
+								{
+									"key": "schedule.days[1]",
+									"value": "Tuesday",
+									"description": "Modificamos los dias de trabajo (Martes)",
+									"type": "text"
+								},
+								{
+									"key": "schedule.days[2]",
+									"value": "Wednesday",
+									"description": "Modificamos los dias de trabajo (Miercoles)",
+									"type": "text"
+								},
+								{
+									"key": "schedule.days[3]",
+									"value": "Thursday",
+									"description": "Modificamos los dias de trabajo (Jueves)",
+									"type": "text"
+								},
+								{
+									"key": "schedule.days[4]",
+									"value": "Friday",
+									"description": "Modificamos los dias de trabajo (Viernes)",
+									"type": "text"
+								},
+								{
+									"key": "schedule.days[5]",
+									"value": "Saturday",
+									"description": "Modificamos los dias de trabajo (Sabado)",
+									"type": "text"
+								},
+								{
+									"key": "schedule.days[6]",
+									"value": "Sunday",
+									"description": "Modificamos los dias de trabajo (Domingo)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "avatar",
+									"value": "",
+									"description": "Modificamos icono del barbero",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{USER_URL}}/editUserProfile/:user_id",
+							"host": [
+								"{{USER_URL}}"
+							],
+							"path": [
+								"editUserProfile",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "660722cd2c6007e148c66236"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "miloca@gmail.com",
+											"description": "Modificamos el email del barbero",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "Camilo",
+											"description": "Modificamos el nombre del barbero",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "600600600",
+											"description": "Modificamos el Numero de telefeno del barbero",
+											"type": "text"
+										},
+										{
+											"key": "schedule.hours.start",
+											"value": "09:00",
+											"description": "Modificamos su hora de inicio de jornada",
+											"type": "text"
+										},
+										{
+											"key": "schedule.hours.end",
+											"value": "17:00",
+											"description": "Modificamos su hora de fin de jornada",
+											"type": "text"
+										},
+										{
+											"key": "schedule.days[0]",
+											"value": "Monday",
+											"description": "Modificamos los dias de trabajo (Lunes)",
+											"type": "text"
+										},
+										{
+											"key": "schedule.days[1]",
+											"value": "Tuesday",
+											"description": "Modificamos los dias de trabajo (Martes)",
+											"type": "text"
+										},
+										{
+											"key": "schedule.days[2]",
+											"value": "Wednesday",
+											"description": "Modificamos los dias de trabajo (Miercoles)",
+											"type": "text"
+										},
+										{
+											"key": "schedule.days[3]",
+											"value": "Thursday",
+											"description": "Modificamos los dias de trabajo (Jueves)",
+											"type": "text"
+										},
+										{
+											"key": "schedule.days[4]",
+											"value": "Friday",
+											"description": "Modificamos los dias de trabajo (Viernes)",
+											"type": "text"
+										},
+										{
+											"key": "schedule.days[5]",
+											"value": "Saturday",
+											"description": "Modificamos los dias de trabajo (Sabado)",
+											"type": "text"
+										},
+										{
+											"key": "schedule.days[6]",
+											"value": "Sunday",
+											"description": "Modificamos los dias de trabajo (Domingo)",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "avatar",
+											"value": "",
+											"description": "Modificamos icono del barbero",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{USER_URL}}/editUserProfile/:user_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"editUserProfile",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "660722cd2c6007e148c66236"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "439"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b7-pbf1TlqXze/G6i/y3/RvA3FDXPw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 20:44:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"660722cd2c6007e148c66236\",\n    \"username\": \"Camilo\",\n    \"email\": \"miloca@gmail.com\",\n    \"phone\": \"600600600\",\n    \"schedule\": {\n        \"hours\": {\n            \"start\": \"09:00\",\n            \"end\": \"17:00\"\n        },\n        \"days\": [\n            \"Monday\",\n            \"Tuesday\",\n            \"Wednesday\",\n            \"Thursday\",\n            \"Friday\",\n            \"Saturday\",\n            \"Sunday\"\n        ]\n    },\n    \"avatar\": \"https://static-00.iconduck.com/assets.00/avatar-default-icon-2048x2048-h6w375ur.png\",\n    \"createdAt\": \"2024-03-29T20:21:33.477Z\",\n    \"updatedAt\": \"2024-03-29T20:44:31.165Z\",\n    \"id\": \"660722cd2c6007e148c66236\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GetUserAppointments(Barber)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{USER_URL}}/getUserAppointments/:user_id",
+							"host": [
+								"{{USER_URL}}"
+							],
+							"path": [
+								"getUserAppointments",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "660722cd2c6007e148c66236"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{USER_URL}}/getUserAppointments/:user_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"getUserAppointments",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "660722cd2c6007e148c66236"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1068"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42c-SYBJ6TBe9rlr20MbycInabrWCIU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 20:51:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"_id\": \"660722cd2c6007e148c66236\",\n        \"username\": \"Camilo\",\n        \"email\": \"miloca@gmail.com\",\n        \"phone\": \"600600600\",\n        \"schedule\": {\n            \"hours\": {\n                \"start\": \"09:00\",\n                \"end\": \"17:00\"\n            },\n            \"days\": [\n                \"Monday\",\n                \"Tuesday\",\n                \"Wednesday\",\n                \"Thursday\",\n                \"Friday\",\n                \"Saturday\"\n            ]\n        },\n        \"avatar\": \"https://static-00.iconduck.com/assets.00/avatar-default-icon-2048x2048-h6w375ur.png\",\n        \"createdAt\": \"2024-03-29T20:21:33.477Z\",\n        \"updatedAt\": \"2024-03-29T20:49:32.159Z\",\n        \"id\": \"660722cd2c6007e148c66236\"\n    },\n    \"appointments\": [\n        {\n            \"_id\": \"660729aaca779ebe72034f7a\",\n            \"user\": \"660722cd2c6007e148c66236\",\n            \"customer\": \"caloncho@gmail.com\",\n            \"date\": \"2024-04-03T09:00:00.000Z\",\n            \"dateEnd\": \"2024-04-03T10:00:00.000Z\",\n            \"service\": \"6607088a73ee5d619a6eab9f\",\n            \"status\": \"pending\",\n            \"createdAt\": \"2024-03-29T20:50:50.533Z\",\n            \"updatedAt\": \"2024-03-29T20:50:50.533Z\"\n        },\n        {\n            \"_id\": \"660729d2ca779ebe72034f83\",\n            \"user\": \"660722cd2c6007e148c66236\",\n            \"customer\": \"caloncho@gmail.com\",\n            \"date\": \"2024-04-03T10:00:00.000Z\",\n            \"dateEnd\": \"2024-04-03T11:00:00.000Z\",\n            \"service\": \"6607088a73ee5d619a6eab9f\",\n            \"status\": \"pending\",\n            \"createdAt\": \"2024-03-29T20:51:30.354Z\",\n            \"updatedAt\": \"2024-03-29T20:51:30.354Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "InvalidID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{USER_URL}}/getUserAppointments/:user_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"getUserAppointments",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "660722cd2c6007e148c6623"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-LWm8wmGs8eDGSYfYNiO/6U8O5UM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 20:54:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid user id\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CancelAppointment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{USER_URL}}//cancelOneAppointment/:appointment_id",
+							"host": [
+								"{{USER_URL}}"
+							],
+							"path": [
+								"",
+								"cancelOneAppointment",
+								":appointment_id"
+							],
+							"variable": [
+								{
+									"key": "appointment_id",
+									"value": "660729d2ca779ebe72034f83"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "InvalidID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{USER_URL}}//cancelOneAppointment/:appointment_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"",
+										"cancelOneAppointment",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "660729d2ca779ebe72034f8"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24-3C7A4ESbw1HnmL5QQILy1G7voxE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 21:00:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid appointment id\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{USER_URL}}//cancelOneAppointment/:appointment_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"",
+										"cancelOneAppointment",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "660729d2ca779ebe72034f83"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-WQk8hsOe4QaPjW9fPNnZTpJf/hA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Mar 2024 21:02:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cita cancelada por el barbero\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"prueba@gmail.com\",\r\n  \"password\": \"Prueba1234\",\r\n  \"username\": \"DonPrueba\",\r\n  \"phone\": \"666555444\",\r\n  \"schedule\": {\r\n    \"days\": [\"Monday\"],\r\n    \"hours\": {\r\n      \"start\": \"10:00\",\r\n      \"end\": \"20:00\"\r\n    }\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AUTH_URL}}/signup",
+							"host": [
+								"{{AUTH_URL}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "NewUserCreated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"prueba@gmail.com\",\r\n  \"password\": \"Prueba1234\",\r\n  \"username\": \"DonPrueba\",\r\n  \"phone\": \"666555444\",\r\n  \"schedule\": {\r\n    \"days\": [\"Monday\"],\r\n    \"hours\": {\r\n      \"start\": \"10:00\",\r\n      \"end\": \"20:00\"\r\n    }\r\n  }\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_URL}}/signup",
+									"host": [
+										"{{AUTH_URL}}"
+									],
+									"path": [
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "408"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"198-owM8Hn4OhrTwBeppvNAMLida8hc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 07:33:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"contendio\": {\n        \"username\": \"DonPrueba\",\n        \"email\": \"prueba@gmail.com\",\n        \"phone\": \"666555444\",\n        \"schedule\": {\n            \"days\": [\n                \"Monday\"\n            ],\n            \"hours\": {\n                \"start\": \"10:00\",\n                \"end\": \"20:00\"\n            }\n        },\n        \"avatar\": \"https://static-00.iconduck.com/assets.00/avatar-default-icon-2048x2048-h6w375ur.png\",\n        \"_id\": \"6607c041fe507db3501c3fdf\",\n        \"createdAt\": \"2024-03-30T07:33:21.070Z\",\n        \"updatedAt\": \"2024-03-30T07:33:21.070Z\",\n        \"id\": \"6607c041fe507db3501c3fdf\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "7BAe[79L-xTul)t",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{AUTH_URL}}/login",
+							"host": [
+								"{{AUTH_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LoginSuccess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "barbero1@example.com",
+											"description": "Email del usuario",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "P4$$B4rb3r1",
+											"description": "Contraseña en texto plano",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{AUTH_URL}}/login",
+									"host": [
+										"{{AUTH_URL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc-co+sGUE3n+F5+Qis7h7fA5UzRPs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 08:21:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwN2NiMzkzNjAzYjRjOWRjM2Q3MDljIiwicm9sIjoiQWRtaW4iLCJpYXQiOjE3MTE3ODY4NzgsImV4cCI6MTcxMTg3MzI3OH0.hsKlb_lpyzQ30yNYplpZnuWLvCXIAUTQcnVy0hVyDQc\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "barbero@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "P4$$B4rb3r1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{AUTH_URL}}/login",
+									"host": [
+										"{{AUTH_URL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-pljHtlo127JYJR4E/RYOPb6ucbw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 08:31:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwODRiOTcyYzZiMDQ3ZTRlY2Y0ZjgwIiwicm9sIjoiYWRtaW4iLCJpYXQiOjE3MTE4MTk3OTIsImV4cCI6MTcxMTkwNjE5Mn0.XcbvpHukEV6j1O8CrigupJN9wpOm5XKkIjhJzFvLMLY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_URL}}/verify",
+							"host": [
+								"{{AUTH_URL}}"
+							],
+							"path": [
+								"verify"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_URL}}/verify",
+									"host": [
+										"{{AUTH_URL}}"
+									],
+									"path": [
+										"verify"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-4mZI4e6B6KhqqoxBlRpiAaTnHtQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 09:27:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6607cb393603b4c9dc3d709c\",\n    \"username\": \"Barbero1\",\n    \"email\": \"barbero1@example.com\",\n    \"phone\": \"1234567890\",\n    \"schedule\": {\n        \"hours\": {\n            \"start\": \"09:00\",\n            \"end\": \"17:00\"\n        },\n        \"days\": [\n            \"Monday\",\n            \"Tuesday\",\n            \"Wednesday\",\n            \"Thursday\",\n            \"Friday\",\n            \"Saturday\"\n        ]\n    },\n    \"avatar\": \"https://static-00.iconduck.com/assets.00/avatar-default-icon-2048x2048-h6w375ur.png\",\n    \"createdAt\": \"2024-03-30T08:20:09.832Z\",\n    \"updatedAt\": \"2024-03-30T08:20:09.832Z\",\n    \"id\": \"6607cb393603b4c9dc3d709c\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "GetAllCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CUSTOMER_URL}}/getAllCustomers",
+							"host": [
+								"{{CUSTOMER_URL}}"
+							],
+							"path": [
+								"getAllCustomers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CUSTOMER_URL}}/getAllCustomers",
+									"host": [
+										"{{CUSTOMER_URL}}"
+									],
+									"path": [
+										"getAllCustomers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "210"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d2-AdONeYfP6Bgn4q8BHICtOcGzy78\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 19:34:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"660865ba2c4a0a4952db7fca\",\n        \"customerEmail\": \"cliente@gmail.com\",\n        \"customerName\": \"Cliente Prueba\",\n        \"customerPhone\": \"643643643\",\n        \"createdAt\": \"2024-03-30T19:19:22.557Z\",\n        \"updatedAt\": \"2024-03-30T19:19:22.557Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GetOneCustomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CUSTOMER_URL}}/getOneCustomer/:customer_id",
+							"host": [
+								"{{CUSTOMER_URL}}"
+							],
+							"path": [
+								"getOneCustomer",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "660865ba2c4a0a4952db7fca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CUSTOMER_URL}}/getOneCustomer/:customer_id",
+									"host": [
+										"{{CUSTOMER_URL}}"
+									],
+									"path": [
+										"getOneCustomer",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": "660865ba2c4a0a4952db7fca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d0-G2C2QtOerY7u1kLYfcjKc/17l6M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 19:33:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"660865ba2c4a0a4952db7fca\",\n    \"customerEmail\": \"cliente@gmail.com\",\n    \"customerName\": \"Cliente Prueba\",\n    \"customerPhone\": \"643643643\",\n    \"createdAt\": \"2024-03-30T19:19:22.557Z\",\n    \"updatedAt\": \"2024-03-30T19:19:22.557Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "EditOneCustomer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customerEmail",
+									"value": "cliente@gmail.com",
+									"description": "Editamos Email del customer",
+									"type": "text"
+								},
+								{
+									"key": "customerName",
+									"value": "Cliente Prueba",
+									"description": "Editamos Nombre del Customer",
+									"type": "text"
+								},
+								{
+									"key": "customerPhone",
+									"value": "699699699",
+									"description": "Editamos Telefono del Customer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{CUSTOMER_URL}}/editOneCustomer/:customer_id",
+							"host": [
+								"{{CUSTOMER_URL}}"
+							],
+							"path": [
+								"editOneCustomer",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "660865ba2c4a0a4952db7fca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "customerEmail",
+											"value": "cliente@gmail.com",
+											"description": "Editamos Email del customer",
+											"type": "text"
+										},
+										{
+											"key": "customerName",
+											"value": "Cliente Prueba",
+											"description": "Editamos Nombre del Customer",
+											"type": "text"
+										},
+										{
+											"key": "customerPhone",
+											"value": "699699699",
+											"description": "Editamos Telefono del Customer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{CUSTOMER_URL}}/editOneCustomer/:customer_id",
+									"host": [
+										"{{CUSTOMER_URL}}"
+									],
+									"path": [
+										"editOneCustomer",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": "660865ba2c4a0a4952db7fca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d0-G2C2QtOerY7u1kLYfcjKc/17l6M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 19:38:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"660865ba2c4a0a4952db7fca\",\n    \"customerEmail\": \"cliente@gmail.com\",\n    \"customerName\": \"Cliente Prueba\",\n    \"customerPhone\": \"643643643\",\n    \"createdAt\": \"2024-03-30T19:19:22.557Z\",\n    \"updatedAt\": \"2024-03-30T19:19:22.557Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "GetAllServices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVICE_URL}}/getAllServices",
+							"host": [
+								"{{SERVICE_URL}}"
+							],
+							"path": [
+								"getAllServices"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVICE_URL}}/getAllServices",
+									"host": [
+										"{{SERVICE_URL}}"
+									],
+									"path": [
+										"getAllServices"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2552"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9f8-OrzJTlYeVaVBrPeYhVveirCB+P0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 21:26:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6607088a73ee5d619a6eab9d\",\n        \"name\": \"Corte de pelo\",\n        \"price\": 15,\n        \"duration\": 30,\n        \"description\": \"Servicio básico de corte de pelo\",\n        \"createdAt\": \"2024-03-29T18:29:30.360Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.360Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eab9e\",\n        \"name\": \"Afeitado de barba\",\n        \"price\": 10,\n        \"duration\": 30,\n        \"description\": \"Servicio de afeitado de barba\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eab9f\",\n        \"name\": \"Corte de pelo y barba\",\n        \"price\": 20,\n        \"duration\": 60,\n        \"description\": \"Servicio combinado de corte de pelo y barba\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba0\",\n        \"name\": \"Arreglo de cejas\",\n        \"price\": 5,\n        \"duration\": 30,\n        \"description\": \"Servicio de arreglo de cejas\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba1\",\n        \"name\": \"Tratamiento capilar\",\n        \"price\": 25,\n        \"duration\": 60,\n        \"description\": \"Servicio de tratamiento capilar\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba2\",\n        \"name\": \"Tinte de cabello\",\n        \"price\": 30,\n        \"duration\": 90,\n        \"description\": \"Servicio de tinte de cabello\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba3\",\n        \"name\": \"Peinado\",\n        \"price\": 12,\n        \"duration\": 30,\n        \"description\": \"Servicio de peinado\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba4\",\n        \"name\": \"Masaje capilar\",\n        \"price\": 15,\n        \"duration\": 30,\n        \"description\": \"Servicio de masaje capilar\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba5\",\n        \"name\": \"Depilación facial\",\n        \"price\": 8,\n        \"duration\": 30,\n        \"description\": \"Servicio de depilación facial\",\n        \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.361Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba6\",\n        \"name\": \"Corte de pelo degradado\",\n        \"price\": 18,\n        \"duration\": 30,\n        \"description\": \"Servicio de corte de pelo con degradado\",\n        \"createdAt\": \"2024-03-29T18:29:30.362Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.362Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba7\",\n        \"name\": \"Diseño de barba\",\n        \"price\": 12,\n        \"duration\": 30,\n        \"description\": \"Servicio de diseño de barba\",\n        \"createdAt\": \"2024-03-29T18:29:30.362Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.362Z\"\n    },\n    {\n        \"_id\": \"6607088a73ee5d619a6eaba8\",\n        \"name\": \"Corte de pelo infantil\",\n        \"price\": 10,\n        \"duration\": 30,\n        \"description\": \"Servicio de corte de pelo para niños\",\n        \"createdAt\": \"2024-03-29T18:29:30.362Z\",\n        \"updatedAt\": \"2024-03-29T18:29:30.362Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "CreateService",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Trenzas",
+									"description": "Nombre del servicio",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "40",
+									"description": "Precio del servicio",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "60",
+									"description": "Duracion en minutos del servicio",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Trenzas manuales",
+									"description": "Descripcion del servicio",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVICE_URL}}/createService",
+							"host": [
+								"{{SERVICE_URL}}"
+							],
+							"path": [
+								"createService"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Trenzas",
+											"description": "Nombre del servicio",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "40",
+											"description": "Precio del servicio",
+											"type": "text"
+										},
+										{
+											"key": "duration",
+											"value": "60",
+											"description": "Duracion en minutos del servicio",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Trenzas manuales",
+											"description": "Descripcion del servicio",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVICE_URL}}/createService",
+									"host": [
+										"{{SERVICE_URL}}"
+									],
+									"path": [
+										"createService"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 21:29:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Created"
+						}
+					]
+				},
+				{
+					"name": "EditService",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Masaje capilar",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Servicio de masaje capilar",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVICE_URL}}/editService/:service_id",
+							"host": [
+								"{{SERVICE_URL}}"
+							],
+							"path": [
+								"editService",
+								":service_id"
+							],
+							"variable": [
+								{
+									"key": "service_id",
+									"value": "6607088a73ee5d619a6eaba4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Masaje capilar",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "duration",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Servicio de masaje capilar",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVICE_URL}}/editService/:service_id",
+									"host": [
+										"{{SERVICE_URL}}"
+									],
+									"path": [
+										"editService",
+										":service_id"
+									],
+									"variable": [
+										{
+											"key": "service_id",
+											"value": "6607088a73ee5d619a6eaba4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc-DodPLHmk3iHCLQMMu82MuR5Ejo8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 21:37:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6607088a73ee5d619a6eaba4\",\n    \"name\": \"Masaje capilar\",\n    \"price\": 20,\n    \"duration\": 30,\n    \"description\": \"Servicio de masaje capilar\",\n    \"createdAt\": \"2024-03-29T18:29:30.361Z\",\n    \"updatedAt\": \"2024-03-30T21:37:44.230Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteService",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SERVICE_URL}}/deleteService/:service_id",
+							"host": [
+								"{{SERVICE_URL}}"
+							],
+							"path": [
+								"deleteService",
+								":service_id"
+							],
+							"variable": [
+								{
+									"key": "service_id",
+									"value": "660884434c8c8f3a8c8dd79"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{SERVICE_URL}}/deleteService/:service_id",
+									"host": [
+										"{{SERVICE_URL}}"
+									],
+									"path": [
+										"deleteService",
+										":service_id"
+									],
+									"variable": [
+										{
+											"key": "service_id",
+											"value": "660884434c8c8f3a8c8dd79a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-VO3COFwYHazukeNxD5H3pdVisM8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 21:39:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Service deleted successfully\"\n}"
+						},
+						{
+							"name": "InvalidID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{SERVICE_URL}}/deleteService/:service_id",
+									"host": [
+										"{{SERVICE_URL}}"
+									],
+									"path": [
+										"deleteService",
+										":service_id"
+									],
+									"variable": [
+										{
+											"key": "service_id",
+											"value": "660884434c8c8f3a8c8dd79"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-QFrx0OHEIU7SwcN8KzxtxwYSNss\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Mar 2024 21:40:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid service id\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "Appointment_URL",
+			"value": "http://localhost:3001/api/appointment/"
+		}
+	]
+}

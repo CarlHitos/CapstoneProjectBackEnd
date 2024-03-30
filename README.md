@@ -11,6 +11,7 @@
   * [Appointment Routes](#appointment-routes)
   * [User Routes](#user-routes)
   * [Auth Routes](#auth-routes)
+* [Postman Collection and Environment](#postman-collection-and-environment)
 * [Future Enhancements](#future-enhancements)
 * [Contributors](#contributors)
 * [License](#license)
@@ -117,16 +118,52 @@ This command executes a predefined script defined in the package.json file. The 
 | /api/auth/signup           | POST        | {createdUser}                    | Sign up user                  |
 | /api/auth/verify           | POST        | {verifiedUser}                   | Verify user credentials       |
 
+## **Customer routes**:
+
+| URL path                                     | HTTP Method | Response                    | Action                           |
+| :------------------------------------------: | :---------: | :-------------------------: | :------------------------------: |
+| /api/customers/getAllCustomers               | GET         | [customers]                 | Get all customers                |
+| /api/customers/getOneCustomer/:customer_id   | GET         | {customer}                  | Get one customer                 |
+| /api/customers/editOneCustomer/:customer_id  | PUT         | {editedCustomer}            | Edit one customer                |
+| /api/customers/deleteOneCustomer/:customer_id| DELETE      | {msg: "Customer deleted"}   | Delete one customer              |
+| /api/customers/cancelAppointment/:appointment_id | DELETE | {msg: "Appointment canceled successfully"} | Cancel appointment for customer |
+
+## **Service routes**:
+
+| URL path                               | HTTP Method | Response                     | Action                    |
+| :------------------------------------: | :---------: | :--------------------------: | :-----------------------: |
+| /api/services/getAllServices           | GET         | [services]                   | Get all services          |
+| /api/services/createService            | POST        | [createdService]             | Create a new service      |
+| /api/services/editService/:service_id  | PUT         | [updatedService]             | Edit a service            |
+| /api/services/deleteService/:service_id| DELETE      | {msg: "Service deleted"}     | Delete a service          |
+
+## Postman Collection and Environment
+
+You can download the Postman collection and environment files to test the API endpoints.
+
+### Postman Collection
+- [Download Postman Collection](./Collection_Postman.json)
+  - This file contains all the API requests to test the endpoints of the backend application.
+
+### Postman Environment
+- [Download Postman Environment](./Env_Postman.json)
+  - This file contains the environment variables needed to run the Postman collection.
+
+
 ## Future Enhancements 🚀
 
-* ***Implement user registration and login for customers to manage their appointments.***
-* ***Allow customers to cancel their own appointments.***
-* ***Integrate OAuth services like Google login for enhanced authentication options.***
-* ***Implement email notifications for appointment reminders and confirmations.***
-* ***Implement payment gateway integration for online payments.***
-* ***Enhance user interface with modern design principles and responsive layouts.***
+* *Implement user registration and login for customers to manage their appointments.*
+* *Allow customers to cancel their own appointments.*
+* *Integrate OAuth services like Google login for enhanced authentication options.*
+* *Implement email notifications for appointment reminders and confirmations.*
+* *Implement payment gateway integration for online payments.*
+* *Enhance user interface with modern design principles and responsive layouts.*
+* *Implement functionality to manage multiple branches or locations for the barber shop. This would allow the business to expand and operate across different areas, with each location having its own set of barbers, services, and appointments.*
+* *Implement automated deployment pipelines integrated with cloud platforms such as AWS, Google Cloud, or Azure. This would streamline the deployment process, allowing for easy scaling and management of the application in a cloud environment.*
 
+## In Progress
 
+This application is currently under development and certain features may not be fully implemented. Contributions and feedback are welcome.
 
 ### **Contributors** 🫂🫱🏼‍🫲🏼
 
