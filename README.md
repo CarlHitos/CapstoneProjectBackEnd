@@ -7,13 +7,13 @@
 - [Features](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#features-)
 - [Technologies Used](https://github.com/CarlHitos/CapstoneProjectBackEnd?tab=readme-ov-file#technologies-used-)
 - [Folder Structure](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#folder-structure-)
-- [API Routes](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#api-routes-)
+- [API Routes](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#api-routes-%EF%B8%8F)
   - [Appointment Routes](#appointment-routes)
   - [User Routes](#user-routes)
   - [Auth Routes](#auth-routes)
 - [Postman Collection and Environment](#postman-collection-and-environment)
 - [Future Enhancements](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#future-enhancements-)
-- [Contributors](#contributors)
+- [Contributors](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#contributors-)
 - [License](#license)
 
 
