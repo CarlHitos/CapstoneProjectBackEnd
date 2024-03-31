@@ -15,6 +15,6 @@ router.put('/editUserProfile/:user_id', editUserProfile);
 router.get('/getUserAppointments/:user_id', getUserAppointments);
 router.get('/getUserAppointmentDetails/:appointment_id', getUserAppointmentDetails);
 // router.post('/createOneAppointment', createOneAppointment);
-router.delete('/cancelOneAppointment/:appointment_id', cancelOneAppointment);
+router.put('/cancelOneAppointment/:appointment_id', cancelOneAppointment);
 
 module.exports = router;

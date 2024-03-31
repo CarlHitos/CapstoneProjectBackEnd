@@ -1,9 +1,24 @@
-const usernameMiddleware = (req, res, next) => {
+
+const isAdminMiddleware = (req, res, next) => {
+  try {
+    if (!req.user) {
+      return res.sendStatus(401)
+    }
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ message: 'Unauthorized Access' });
+    }
+    next();
+  } catch (err) {
+    next(err);
+  }
+}
+
+const isUserMiddleware = (req, res, next) => {
   try {
     if (!req.user) {
       return res.sendStatus(401);
     }
-    if (req.user.username !== 'Administrator') {
+    if (req.user.role !== 'user') {
       return res.sendStatus(403);
     }
     next();
@@ -12,4 +27,7 @@ const usernameMiddleware = (req, res, next) => {
   }
 }
 
-module.exports = usernameMiddleware;
+module.exports = {
+  isAdminMiddleware,
+  isUserMiddleware
+};

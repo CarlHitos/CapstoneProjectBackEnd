@@ -5,7 +5,6 @@ const customerSchema = new Schema(
         customerEmail: {
             type: String,
             required: true,
-            unique: true,
             lowercase: true,
             trim: true
         },
@@ -16,7 +15,6 @@ const customerSchema = new Schema(
         },
         customerPhone: {
             type: String,
-            unique: true,
             required: [true, "El teléfono del cliente es obligatorio"],
             trim: true
         }

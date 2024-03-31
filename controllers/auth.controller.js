@@ -25,13 +25,15 @@ const signup = async (req, res, next) => {
 };
 
 const login = async (req, res) => {
+  // const userRole = req.user.role || 'user';
   res.json({
-    token: jwt.sign({ user: req.user._id, rol: 'admin' }, secret , { expiresIn: '1d' }),
+    token: jwt.sign({ user: req.user._id }, secret , { expiresIn: '1d' }),
   });
 };
 
 const verify = async (req, res) => {
   res.json(req.user);
+  console.log(req.user)
 };
 
 module.exports = {

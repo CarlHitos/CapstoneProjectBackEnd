@@ -7,7 +7,11 @@ const getUserProfile = async (req, res, next) => {
         const { user_id } = req.params;
 
         if (!Types.ObjectId.isValid(user_id)) {
-            return res.status(400).json({ message: 'Invalid user id' });
+            return res.status(400).json({ message: 'Invalid User id' });
+        }
+
+        if (user_id !== req.user.id) {
+            return res.status(403).json({ message: 'Unauthorized' });
         }
 
         const user = await User.findById(req.params.user_id);
@@ -30,9 +34,13 @@ const editUserProfile = async (req, res, next) => {
             return res.status(400).json({ message: 'Invalid user id' });
         }
 
+        if (user_id !== req.user.id) {
+            return res.status(403).json({ message: 'Unauthorized' });
+        }
+
         const user = await User.findByIdAndUpdate(user_id, req.body, { new: true });
         if (!user) {
-            return res.status(404).json({ message: 'Usero no encontrado' });
+            return res.status(404).json({ message: 'User not found' });
         }
 
         res.json(user);
@@ -47,6 +55,10 @@ const getUserAppointments = async (req, res, next) => {
 
         if (!Types.ObjectId.isValid(user_id)) {
             return res.status(400).json({ message: 'Invalid user id' });
+        }
+
+        if (user_id !== req.user.id) {
+            return res.status(403).json({ message: 'Unauthorized' });
         }
 
         const user = await User.findById(user_id);
@@ -88,12 +100,8 @@ const getUserAppointmentDetails = async (req, res, next) => {
 
 // const createOneAppointment = async (req, res, next) => {
 //     try {
-//         // Extraer los datos de la cita desde el cuerpo de la solicitud
 //         const { user, customer, date, service, status, notes } = req.body;
 
-//         // Validar los datos de entrada (puedes agregar más validaciones según sea necesario)
-
-//         // Verificar si la fecha y hora de la cita están disponibles para el usero
 //         const isAvailable = await checkAvailability(user, date);
 //         if (!isAvailable) {
 //             return res.status(400).json({ message: 'La fecha y hora de la cita no están disponibles' });
@@ -109,20 +117,11 @@ const getUserAppointmentDetails = async (req, res, next) => {
 //             notes
 //         });
 
-//         // Devolver una respuesta indicando que la cita ha sido creada exitosamente
 //         res.status(201).json({ message: 'Nueva cita creada exitosamente', appointment });
 //     } catch (error) {
 //         next(error);
 //     }
 // };
-
-// // Función para verificar la disponibilidad de la fecha y hora para el usero
-// const checkAvailability = async (userId, date) => {
-//     // Implementa la lógica para verificar la disponibilidad de la fecha y hora para el usero
-//     // Por ejemplo, puedes buscar citas existentes para el usero en la fecha y hora especificadas
-//     // y devolver true si la fecha y hora están disponibles y false si no lo están.
-// };
-
 
 const cancelOneAppointment = async (req, res, next) => {
     try {
@@ -137,18 +136,19 @@ const cancelOneAppointment = async (req, res, next) => {
             return res.status(404).json({ message: 'Appointment not found' });
         }
 
-        // Verificar si la cita pertenece al usero actual, COMPROBAR CUANDO FUNCIONE EL LOGIN!!!
-        // if (appointment.user.toString() !== req.user.id) {
-        //     return res.status(403).json({ message: 'Unauthorized' });
-        // }
+        if (appointment.user.toString() !== req.user.id) {
+            return res.status(403).json({ message: 'Unauthorized' });
+        }
 
-        await Appointment.findByIdAndDelete(appointment);
+        appointment.status = 'cancelled';
+        await appointment.save();
 
-        res.json({ message: 'Cita cancelada por el barbero' });
+        res.json({ message: 'Cita cancelada correctamente' });
     } catch (error) {
         next(error);
     }
 };
+
 
 
 module.exports = {

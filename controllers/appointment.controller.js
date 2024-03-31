@@ -57,7 +57,7 @@ const createOneAppointment = async (req, res, next) => {
             return res.status(400).json({ error: 'Ya hay una cita programada para esta hora y fecha.' });
         }
 
-        let customer = await Customer.findById(req.body._id);
+        let customer = await Customer.findOne({ customerEmail: req.body.customerEmail });
         if (!customer) {
 
             customer = await Customer.create({
