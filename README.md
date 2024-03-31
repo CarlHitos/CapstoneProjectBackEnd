@@ -2,19 +2,20 @@
 
 ## Index
 
-* [Description](#description)
-* [Installation](#installation)
-* [Features](#features)
-* [Technologies Used](#technologies-used)
-* [Folder Structure](#folder-structure)
-* [API Routes](#api-routes)
-  * [Appointment Routes](#appointment-routes)
-  * [User Routes](#user-routes)
-  * [Auth Routes](#auth-routes)
-* [Postman Collection and Environment](#postman-collection-and-environment)
-* [Future Enhancements](#future-enhancements)
-* [Contributors](#contributors)
-* [License](#license)
+- [Description](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#description-)
+- [Installation](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#installation-)
+- [Features](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#features-)
+- [Technologies Used](https://github.com/CarlHitos/CapstoneProjectBackEnd?tab=readme-ov-file#technologies-used-)
+- [Folder Structure](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#folder-structure-)
+- [API Routes](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#api-routes-)
+  - [Appointment Routes](#appointment-routes)
+  - [User Routes](#user-routes)
+  - [Auth Routes](#auth-routes)
+- [Postman Collection and Environment](#postman-collection-and-environment)
+- [Future Enhancements](https://github.com/CarlHitos/CapstoneProjectBackEnd/blob/master/README.md#future-enhancements-)
+- [Contributors](#contributors)
+- [License](#license)
+
 
 ## Description 📋
 
@@ -153,7 +154,6 @@ You can download the Postman collection and environment files to test the API en
 ## Future Enhancements 🚀
 
 * *Implement user registration and login for customers to manage their appointments.*
-* *Allow customers to cancel their own appointments.*
 * *Integrate OAuth services like Google login for enhanced authentication options.*
 * *Implement email notifications for appointment reminders and confirmations.*
 * *Implement payment gateway integration for online payments.*
