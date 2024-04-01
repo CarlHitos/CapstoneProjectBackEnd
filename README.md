@@ -27,7 +27,7 @@ This project is a full-stack application designed to streamline the appointment 
 1. Clone the repository
 
 ```bash
-git clone https://github.com/tu_usuario/capstoneprojectbackend.git
+git clone hhttps://github.com/CarlHitos/CapstoneProjectBackEnd.git
 ```
 
 2. Install the dependencies

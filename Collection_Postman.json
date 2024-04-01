@@ -457,23 +457,46 @@
 					]
 				},
 				{
-					"name": "GetInfoAppointment",
+					"name": "GetBarberAppointments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{APPOINTMENT_URL}}/getInfo/:appointment_id",
+							"raw": "{{APPOINTMENT_URL}}/barberAppointments?user_id=660946019bc30e67b7b665e4&date=2024-04-03",
 							"host": [
 								"{{APPOINTMENT_URL}}"
 							],
 							"path": [
-								"getInfo",
-								":appointment_id"
+								"barberAppointments"
 							],
-							"variable": [
+							"query": [
 								{
-									"key": "appointment_id",
-									"value": "6607161c444527f3171e199"
+									"key": "user_id",
+									"value": "660946019bc30e67b7b665e4",
+									"description": "ID del usuario(Barbero)"
+								},
+								{
+									"key": "date",
+									"value": "2024-04-03",
+									"description": "Fecha solicitada"
 								}
 							]
 						}
@@ -484,19 +507,39 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
 								"url": {
-									"raw": "{{APPOINTMENT_URL}}/getInfo/:appointment_id",
+									"raw": "{{APPOINTMENT_URL}}/barberAppointments?user_id=660946019bc30e67b7b665e4&date=2024-04-03",
 									"host": [
 										"{{APPOINTMENT_URL}}"
 									],
 									"path": [
-										"getInfo",
-										":appointment_id"
+										"barberAppointments"
 									],
-									"variable": [
+									"query": [
 										{
-											"key": "appointment_id",
-											"value": "6607161c444527f3171e1990"
+											"key": "user_id",
+											"value": "660946019bc30e67b7b665e4",
+											"description": "ID del usuario(Barbero)"
+										},
+										{
+											"key": "date",
+											"value": "2024-04-03",
+											"description": "Fecha solicitada"
 										}
 									]
 								}
@@ -523,15 +566,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "305"
+									"value": "1227"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"131-+X1WzlKHUOqDkY8hVl+k6rpa8fY\""
+									"value": "W/\"4cb-1/cQmf9yAh/Nx3UuFerWvnF71yQ\""
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 29 Mar 2024 19:39:44 GMT"
+									"value": "Mon, 01 Apr 2024 16:21:59 GMT"
 								},
 								{
 									"key": "Connection",
@@ -543,26 +586,46 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"_id\": \"6607161c444527f3171e1990\",\n    \"user\": \"6607088bc9fa5e1ce0ef3ba8\",\n    \"customer\": \"caloncho@gmail.com\",\n    \"date\": \"2024-04-03T09:30:00.000Z\",\n    \"dateEnd\": \"2024-04-03T10:00:00.000Z\",\n    \"service\": \"6607088a73ee5d619a6eab9d\",\n    \"status\": \"pending\",\n    \"createdAt\": \"2024-03-29T19:27:24.293Z\",\n    \"updatedAt\": \"2024-03-29T19:27:24.293Z\"\n}"
+							"body": "[\n    {\n        \"_id\": \"66094727c7c777ad1e83895e\",\n        \"user\": \"660946019bc30e67b7b665e4\",\n        \"customer\": \"caloncho@gmail.com\",\n        \"date\": \"2024-04-03T10:00:00.000Z\",\n        \"dateEnd\": \"2024-04-03T10:30:00.000Z\",\n        \"service\": \"66094600313bb55ba40a93f9\",\n        \"status\": \"cancelled\",\n        \"createdAt\": \"2024-03-31T11:21:11.410Z\",\n        \"updatedAt\": \"2024-03-31T12:37:21.776Z\"\n    },\n    {\n        \"_id\": \"660948cc346ebdf7053c4cf4\",\n        \"user\": \"660946019bc30e67b7b665e4\",\n        \"customer\": \"caloncho@gmail.com\",\n        \"date\": \"2024-04-03T11:00:00.000Z\",\n        \"dateEnd\": \"2024-04-03T11:30:00.000Z\",\n        \"service\": \"66094600313bb55ba40a93f9\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2024-03-31T11:28:12.927Z\",\n        \"updatedAt\": \"2024-03-31T11:28:12.927Z\"\n    },\n    {\n        \"_id\": \"660948d2346ebdf7053c4cfa\",\n        \"user\": \"660946019bc30e67b7b665e4\",\n        \"customer\": \"caloncho@gmail.com\",\n        \"date\": \"2024-04-03T12:00:00.000Z\",\n        \"dateEnd\": \"2024-04-03T12:30:00.000Z\",\n        \"service\": \"66094600313bb55ba40a93f9\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2024-03-31T11:28:18.794Z\",\n        \"updatedAt\": \"2024-03-31T11:28:18.794Z\"\n    },\n    {\n        \"_id\": \"66094a41346ebdf7053c4d22\",\n        \"user\": \"660946019bc30e67b7b665e4\",\n        \"customer\": \"caloncho@gmail.com\",\n        \"date\": \"2024-04-03T15:00:00.000Z\",\n        \"dateEnd\": \"2024-04-03T15:30:00.000Z\",\n        \"service\": \"66094600313bb55ba40a93f9\",\n        \"status\": \"pending\",\n        \"createdAt\": \"2024-03-31T11:34:25.852Z\",\n        \"updatedAt\": \"2024-03-31T11:34:25.852Z\"\n    }\n]"
 						},
 						{
 							"name": "InvalidID",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
 								"url": {
-									"raw": "{{APPOINTMENT_URL}}/getInfo/:appointment_id",
+									"raw": "{{APPOINTMENT_URL}}/barberAppointments?user_id=660946019bc30e67b7b665e&date=2024-04-03",
 									"host": [
 										"{{APPOINTMENT_URL}}"
 									],
 									"path": [
-										"getInfo",
-										":appointment_id"
+										"barberAppointments"
 									],
-									"variable": [
+									"query": [
 										{
-											"key": "appointment_id",
-											"value": "6607161c444527f3171e199"
+											"key": "user_id",
+											"value": "660946019bc30e67b7b665e",
+											"description": "ID del usuario(Barbero)"
+										},
+										{
+											"key": "date",
+											"value": "2024-04-03",
+											"description": "Fecha solicitada"
 										}
 									]
 								}
@@ -597,7 +660,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 29 Mar 2024 19:40:01 GMT"
+									"value": "Mon, 01 Apr 2024 16:22:28 GMT"
 								},
 								{
 									"key": "Connection",
@@ -616,6 +679,16 @@
 				{
 					"name": "DeleteAppointment",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwOTQ2MDE5YmMzMGU2N2I3YjY2NWU5IiwiaWF0IjoxNzExOTg4OTIwLCJleHAiOjE3MTIwNzUzMjB9.w-8Y1dIGOQJwiftdWzzwwt8SXrvDUfbA1NuLZfkYZSQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -630,14 +703,14 @@
 							"variable": [
 								{
 									"key": "appointment_id",
-									"value": "6607161c444527f3171e1990"
+									"value": "66094727c7c777ad1e83895e"
 								}
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "InvalidID",
+							"name": "Success_Authorized",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -653,73 +726,8 @@
 									"variable": [
 										{
 											"key": "appointment_id",
-											"value": "6607161c444527f3171e199"
-										}
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Vary",
-									"value": "Origin"
-								},
-								{
-									"key": "Access-Control-Allow-Credentials",
-									"value": "true"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "33"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"21-exiBV2BytSZiZjDSqTXvLq/OoKY\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 29 Mar 2024 19:40:44 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"msg\": \"Invalid appointment id!\"\n}"
-						},
-						{
-							"name": "Success",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{APPOINTMENT_URL}}/delete/:appointment_id",
-									"host": [
-										"{{APPOINTMENT_URL}}"
-									],
-									"path": [
-										"delete",
-										":appointment_id"
-									],
-									"variable": [
-										{
-											"key": "appointment_id",
-											"value": "6607161c444527f3171e1990"
+											"value": "66094727c7c777ad1e83895e",
+											"description": "Solo permitido para usuario Admin"
 										}
 									]
 								}
@@ -754,7 +762,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 29 Mar 2024 19:41:04 GMT"
+									"value": "Mon, 01 Apr 2024 16:31:24 GMT"
 								},
 								{
 									"key": "Connection",
@@ -767,6 +775,72 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"msg\": \"Appointment successfully deleted!\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{APPOINTMENT_URL}}/delete/:appointment_id",
+									"host": [
+										"{{APPOINTMENT_URL}}"
+									],
+									"path": [
+										"delete",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "660948cc346ebdf7053c4cf4"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-gb+q0NSXPXYdZgeFD3FfhIz+Df0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 16:32:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized Access\"\n}"
 						}
 					]
 				}
@@ -1815,122 +1889,78 @@
 					]
 				},
 				{
-					"name": "CancelAppointment",
+					"name": "UpdateAppointmentStatus",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwOTQ2MDE5YmMzMGU2N2I3YjY2NWU0IiwiaWF0IjoxNzExODg2OTU4LCJleHAiOjE3MTE5NzMzNTh9.zSIvDlw2RwLBXElay1sQxU5vHBGSi4e1b6e7EHIP-tI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwOTQ2MDE5YmMzMGU2N2I3YjY2NWU1IiwiaWF0IjoxNzExOTgzNDM3LCJleHAiOjE3MTIwNjk4Mzd9.A1oN20YPpHYL2quCE4f1vfs8mlgfOEnDGZ1DL_0dVFY",
 									"type": "string"
 								}
 							]
 						},
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "confirmed",
+									"description": "Modificamos el status del appointment",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{USER_URL}}/cancelOneAppointment/:appointment_id",
+							"raw": "{{USER_URL}}/updateAppointmentStatus/:appointment_id",
 							"host": [
 								"{{USER_URL}}"
 							],
 							"path": [
-								"cancelOneAppointment",
+								"updateAppointmentStatus",
 								":appointment_id"
 							],
 							"variable": [
 								{
 									"key": "appointment_id",
-									"value": "660948f0346ebdf7053c4d06"
+									"value": "660948f7346ebdf7053c4d0c"
 								}
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "Success_Authorized",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"url": {
-									"raw": "{{USER_URL}}/cancelOneAppointment/:appointment_id",
-									"host": [
-										"{{USER_URL}}"
-									],
-									"path": [
-										"cancelOneAppointment",
-										":appointment_id"
-									],
-									"variable": [
-										{
-											"key": "appointment_id",
-											"value": "66094727c7c777ad1e83895e"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Vary",
-									"value": "Origin"
-								},
-								{
-									"key": "Access-Control-Allow-Credentials",
-									"value": "true"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "42"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2a-yDkXmopAdzb/3yUzj8QI4ySHgAY\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 31 Mar 2024 12:37:21 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"Cita cancelada correctamente\"\n}"
-						},
-						{
 							"name": "Unauthorized",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "status",
+											"value": "confirmed",
+											"description": "Modificamos el status del appointment",
+											"type": "text"
+										}
+									]
+								},
 								"url": {
-									"raw": "{{USER_URL}}/cancelOneAppointment/:appointment_id",
+									"raw": "{{USER_URL}}/updateAppointmentStatus/:appointment_id",
 									"host": [
 										"{{USER_URL}}"
 									],
 									"path": [
-										"cancelOneAppointment",
+										"updateAppointmentStatus",
 										":appointment_id"
 									],
 									"variable": [
 										{
 											"key": "appointment_id",
-											"value": "660948f0346ebdf7053c4d06"
+											"value": "660948cc346ebdf7053c4cf4"
 										}
 									]
 								}
@@ -1965,7 +1995,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 31 Mar 2024 12:38:23 GMT"
+									"value": "Mon, 01 Apr 2024 15:05:57 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1980,23 +2010,111 @@
 							"body": "{\n    \"message\": \"Unauthorized\"\n}"
 						},
 						{
-							"name": "InvalidID",
+							"name": "Success_Authorized",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "status",
+											"value": "confirmed",
+											"description": "Modificamos el status del appointment",
+											"type": "text"
+										}
+									]
+								},
 								"url": {
-									"raw": "{{USER_URL}}/cancelOneAppointment/:appointment_id",
+									"raw": "{{USER_URL}}/updateAppointmentStatus/:appointment_id",
 									"host": [
 										"{{USER_URL}}"
 									],
 									"path": [
-										"cancelOneAppointment",
+										"updateAppointmentStatus",
 										":appointment_id"
 									],
 									"variable": [
 										{
 											"key": "appointment_id",
-											"value": "660948f0346ebdf7053c4d0"
+											"value": "660948f7346ebdf7053c4d0c"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-7Y+l+ZRTPmxVIVwuHfY4MEZhLWU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 15:07:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Estado de la cita actualizado a confirmed\"\n}"
+						},
+						{
+							"name": "InvalidID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "status",
+											"value": "confirmed",
+											"description": "Modificamos el status del appointment",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{USER_URL}}/updateAppointmentStatus/:appointment_id",
+									"host": [
+										"{{USER_URL}}"
+									],
+									"path": [
+										"updateAppointmentStatus",
+										":appointment_id"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "660948f7346ebdf7053c4d0"
 										}
 									]
 								}
@@ -2031,7 +2149,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 31 Mar 2024 12:38:58 GMT"
+									"value": "Mon, 01 Apr 2024 15:07:40 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2235,12 +2353,12 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "barbero1@example.com",
+									"value": "barbero2@example.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "P4$$B4rb3r1",
+									"value": "P4$$B4rb3r2",
 									"type": "text"
 								}
 							]
@@ -2890,6 +3008,16 @@
 				{
 					"name": "CreateService",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjYwYjIyYjg0YzFlYTJjNjcyMWY4MTBjIiwiaWF0IjoxNzEyMDA3MDgzLCJleHAiOjE3MTIwOTM0ODN9.SjdMGQk3lcCZ2MId_o9N7bJK5tI_K1Eqn-o3Im_iFgo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -2917,6 +3045,12 @@
 									"key": "description",
 									"value": "Trenzas manuales",
 									"description": "Descripcion del servicio",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "others",
+									"description": "Otros servicios",
 									"type": "text"
 								}
 							]
@@ -3019,6 +3153,193 @@
 							],
 							"cookie": [],
 							"body": "Created"
+						},
+						{
+							"name": "Success_Authorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Trenzas",
+											"description": "Nombre del servicio",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "40",
+											"description": "Precio del servicio",
+											"type": "text"
+										},
+										{
+											"key": "duration",
+											"value": "60",
+											"description": "Duracion en minutos del servicio",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Trenzas manuales",
+											"description": "Descripcion del servicio",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "others",
+											"description": "Otros servicios",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"description": "Solo puede crear servicios Admin",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVICE_URL}}/createService",
+									"host": [
+										"{{SERVICE_URL}}"
+									],
+									"path": [
+										"createService"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 21:32:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Created"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Trenzas",
+											"description": "Nombre del servicio",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "40",
+											"description": "Precio del servicio",
+											"type": "text"
+										},
+										{
+											"key": "duration",
+											"value": "60",
+											"description": "Duracion en minutos del servicio",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Trenzas manuales",
+											"description": "Descripcion del servicio",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "others",
+											"description": "Otros servicios",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{SERVICE_URL}}/createService",
+									"host": [
+										"{{SERVICE_URL}}"
+									],
+									"path": [
+										"createService"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 21:33:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "12"
+								}
+							],
+							"cookie": [],
+							"body": "Unauthorized"
 						}
 					]
 				},
