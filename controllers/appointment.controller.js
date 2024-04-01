@@ -38,7 +38,7 @@ const createOneAppointment = async (req, res, next) => {
         const appointmentTime = moment.utc(dateStart).format('HH:mm');
         const scheduleStart = userData.schedule.hours.start;
         const scheduleEnd = userData.schedule.hours.end;
-    
+
         if (moment(appointmentTime, 'HH:mm').isBefore(moment(scheduleStart, 'HH:mm')) || moment(appointmentTime, 'HH:mm').isAfter(moment(scheduleEnd, 'HH:mm'))) {
             return res.status(400).json({ error: 'El barbero no está disponible en este horario.' });
         }
@@ -83,24 +83,29 @@ const createOneAppointment = async (req, res, next) => {
     }
 };
 
-
-const getInfoAppointment = async (req, res, next) => {
+const getBarberAppointments = async (req, res, next) => {
     try {
-        const { appointment_id } = req.params;
+        const { user_id, date } = req.query;
+        console.log('user >>', user_id, ' date >>', date)
 
-        if (!Types.ObjectId.isValid(appointment_id)) {
+        if (!Types.ObjectId.isValid(user_id)) {
             return res.status(400).json({ msg: 'Invalid appointment id!' });
         }
 
-        const appointment = await Appointment.findById(appointment_id);
+        const searchDate = new Date(date);
 
-        if (!appointment) {
-            return res.status(404).json({ msg: 'Appointment not found!' });
-        }
+        const appointments = await Appointment.find({
+            user: user_id,
+            date: {
+                $gte: new Date(searchDate.setHours(0, 0, 0)),
+                $lt: new Date(searchDate.setHours(23, 59, 59))
+            }
+        });
 
-        res.status(200).json(appointment);
-    } catch (err) {
-        next(err);
+        console.log('appointments >>', appointments)
+        res.json(appointments);
+    } catch (error) {
+        next(error);
     }
 };
 
@@ -124,6 +129,6 @@ const deleteOneAppointment = async (req, res, next) => {
 module.exports = {
     getAllAppointment,
     createOneAppointment,
-    getInfoAppointment,
+    getBarberAppointments,
     deleteOneAppointment
 };

@@ -5,8 +5,7 @@ const {
     editUserProfile,
     getUserAppointments,
     getUserAppointmentDetails,
-    // createOneAppointment,
-    cancelOneAppointment,
+    updateAppointmentStatus,
 } = require('../controllers/user.controller')
 
 
@@ -14,7 +13,6 @@ router.get('/getUserProfile/:user_id', getUserProfile);
 router.put('/editUserProfile/:user_id', editUserProfile);
 router.get('/getUserAppointments/:user_id', getUserAppointments);
 router.get('/getUserAppointmentDetails/:appointment_id', getUserAppointmentDetails);
-// router.post('/createOneAppointment', createOneAppointment);
-router.put('/cancelOneAppointment/:appointment_id', cancelOneAppointment);
+router.put('/updateAppointmentStatus/:appointment_id', updateAppointmentStatus);
 
 module.exports = router;

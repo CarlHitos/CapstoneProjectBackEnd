@@ -12,8 +12,8 @@ const getAllServices = async (req, res, next) => {
 
 const createService = async (req, res, next) => {
     try {
-        const { name, price, duration, description } = req.body;
-        await Service.create({ name, price, duration, description });
+        const { name, price, duration, description, category } = req.body;
+        await Service.create({ name, price, duration, description, category });
         res.sendStatus(201)
     } catch (error) {
         next(error);
@@ -28,11 +28,11 @@ const editService = async (req, res, next) => {
             return res.status(400).json({ message: 'Invalid service id' });
         }
 
-        const { name, price, duration, description } = req.body;
+        const { name, price, duration, description, category } = req.body;
 
         const updatedService = await Service.findByIdAndUpdate(
             service_id,
-            { name, price, duration, description },
+            { name, price, duration, description, category },
             { new: true }
         );
 

@@ -3,72 +3,84 @@
         "name": "Corte de pelo",
         "price": "15.00",
         "duration": "30",
-        "description": "Servicio básico de corte de pelo"
-    },
-    {
-        "name": "Afeitado de barba",
-        "price": "10.00",
-        "duration": "30",
-        "description": "Servicio de afeitado de barba"
+        "description": "Servicio básico de corte de pelo",
+        "category": "cut"
     },
     {
         "name": "Corte de pelo y barba",
         "price": "20.00",
         "duration": "60",
-        "description": "Servicio combinado de corte de pelo y barba"
-    },
-    {
-        "name": "Arreglo de cejas",
-        "price": "5.00",
-        "duration": "30",
-        "description": "Servicio de arreglo de cejas"
-    },
-    {
-        "name": "Tratamiento capilar",
-        "price": "25.00",
-        "duration": "60",
-        "description": "Servicio de tratamiento capilar"
-    },
-    {
-        "name": "Tinte de cabello",
-        "price": "30.00",
-        "duration": "90",
-        "description": "Servicio de tinte de cabello"
-    },
-    {
-        "name": "Peinado",
-        "price": "12.00",
-        "duration": "30",
-        "description": "Servicio de peinado"
-    },
-    {
-        "name": "Masaje capilar",
-        "price": "15.00",
-        "duration": "30",
-        "description": "Servicio de masaje capilar"
-    },
-    {
-        "name": "Depilación facial",
-        "price": "8.00",
-        "duration": "30",
-        "description": "Servicio de depilación facial"
+        "description": "Servicio combinado de corte de pelo y barba",
+        "category": "cut"
     },
     {
         "name": "Corte de pelo degradado",
         "price": "18.00",
         "duration": "30",
-        "description": "Servicio de corte de pelo con degradado"
-    },
-    {
-        "name": "Diseño de barba",
-        "price": "12.00",
-        "duration": "30",
-        "description": "Servicio de diseño de barba"
+        "description": "Servicio de corte de pelo con degradado",
+        "category": "cut"
     },
     {
         "name": "Corte de pelo infantil",
         "price": "10.00",
         "duration": "30",
-        "description": "Servicio de corte de pelo para niños"
+        "description": "Servicio de corte de pelo para niños",
+        "category": "cut"
+    },
+    {
+        "name": "Afeitado de barba",
+        "price": "10.00",
+        "duration": "30",
+        "description": "Servicio de afeitado de barba",
+        "category": "beard"
+    },
+    {
+        "name": "Diseño de barba",
+        "price": "12.00",
+        "duration": "30",
+        "description": "Servicio de diseño de barba",
+        "category": "beard"
+    },
+    {
+        "name": "Afeitado clasico",
+        "price": "20.00",
+        "duration": "30",
+        "description": "Afeitado con navaja y toallas calientes, ayuda con la irritacion de vellos",
+        "category": "beard"
+    },
+    {
+        "name": "Corte de bigote",
+        "price": "5.00",
+        "duration": "30",
+        "description": "Corte de bigote clasico",
+        "category": "beard"
+    },
+    {
+        "name": "Cejas",
+        "price": "5.00",
+        "duration": "30",
+        "description": "Servicio de arreglo de cejas",
+        "category": "others"
+    },
+    {
+        "name": "Masaje capilar",
+        "price": "15.00",
+        "duration": "30",
+        "description": "Servicio de masaje capilar",
+        "category": "others"
+    },
+    {
+        "name": "Depilación facial",
+        "price": "8.00",
+        "duration": "30",
+        "description": "Servicio de depilación facial",
+        "category": "others"
+    },
+    {
+        "name": "Tinte de cabello",
+        "price": "30.00",
+        "duration": "90",
+        "description": "Servicio de tinte de cabello",
+        "category": "others"
     }
 ]

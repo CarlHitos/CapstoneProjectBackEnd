@@ -18,7 +18,12 @@ const serviceSchema = new Schema(
         description: {
             type: String,
             required: [true, "La descripción del servicio es obligatoria"]
-        }
+        },
+        category: {
+            type: String,
+            enum: ['cut', 'beard', 'others'],
+            required: true
+        },
     },
     {
         timestamps: true,
