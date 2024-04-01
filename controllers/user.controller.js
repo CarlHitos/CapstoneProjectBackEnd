@@ -97,33 +97,7 @@ const getUserAppointmentDetails = async (req, res, next) => {
     }
 };
 
-
-// const createOneAppointment = async (req, res, next) => {
-//     try {
-//         const { user, customer, date, service, status, notes } = req.body;
-
-//         const isAvailable = await checkAvailability(user, date);
-//         if (!isAvailable) {
-//             return res.status(400).json({ message: 'La fecha y hora de la cita no están disponibles' });
-//         }
-
-//         // Crear una nueva cita en la base de datos
-//         const appointment = await Appointment.create({
-//             user,
-//             customer,
-//             date,
-//             service,
-//             status,
-//             notes
-//         });
-
-//         res.status(201).json({ message: 'Nueva cita creada exitosamente', appointment });
-//     } catch (error) {
-//         next(error);
-//     }
-// };
-
-const cancelOneAppointment = async (req, res, next) => {
+const updateAppointmentStatus = async (req, res, next) => {
     try {
         const { appointment_id } = req.params;
 
@@ -136,18 +110,24 @@ const cancelOneAppointment = async (req, res, next) => {
             return res.status(404).json({ message: 'Appointment not found' });
         }
 
-        if (appointment.user.toString() !== req.user.id) {
+        if (req.user.role !== 'admin' && appointment.user.toString() !== req.user.id) {
             return res.status(403).json({ message: 'Unauthorized' });
         }
 
-        appointment.status = 'cancelled';
+        const { status } = req.body;
+        if (!['confirmed', 'cancelled'].includes(status)) {
+            return res.status(400).json({ message: 'Invalid appointment status' });
+        }
+
+        appointment.status = status;
         await appointment.save();
 
-        res.json({ message: 'Cita cancelada correctamente' });
+        res.json({ message: `Estado de la cita actualizado a ${status}` });
     } catch (error) {
         next(error);
     }
 };
+
 
 
 
@@ -156,6 +136,5 @@ module.exports = {
     editUserProfile,
     getUserAppointments,
     getUserAppointmentDetails,
-    // createOneAppointment,
-    cancelOneAppointment
+    updateAppointmentStatus
 };
