@@ -10,7 +10,8 @@
                 "end": "17:00"
             }
         },
-        "password": "P4$$B4rb3r1"
+        "password": "P4$$B4rb3r1",
+        "avatar": "https://images.unsplash.com/photo-1589315876349-1201fd1baaef?q=80&w=2552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
         "username": "Barbero2",
@@ -23,7 +24,8 @@
                 "end": "18:00"
             }
         },
-        "password": "P4$$B4rb3r2"
+        "password": "P4$$B4rb3r2",
+        "avatar": "https://images.unsplash.com/photo-1639511177364-0866c0da16fa?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
         "username": "Barbero3",
@@ -36,7 +38,8 @@
                 "end": "16:00"
             }
         },
-        "password": "P4$$B4rb3r3"
+        "password": "P4$$B4rb3r3",
+        "avatar": "https://plus.unsplash.com/premium_photo-1671741519366-f8200f554568?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
         "username": "Administrator",
@@ -50,6 +53,7 @@
             }
         },
         "password": "7BAe[79L-xTul)t",
-        "role": "admin"
+        "role": "admin",
+        "avatar": "https://images.unsplash.com/photo-1582893561942-d61adcb2e534?q=80&w=2582&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
 ]

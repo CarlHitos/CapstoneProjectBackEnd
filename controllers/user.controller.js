@@ -2,6 +2,15 @@ const { Types } = require('mongoose');
 const Appointment = require('../models/appointment.model');
 const User = require('../models/user.model');
 
+const getAllUsers = async (req, res, next) => {
+    try {
+        const users = await User.find({ role: 'user' });
+        res.json(users);
+    } catch (error) {
+        next(error);
+    }
+}
+
 const getUserProfile = async (req, res, next) => {
     try {
         const { user_id } = req.params;
@@ -132,6 +141,7 @@ const updateAppointmentStatus = async (req, res, next) => {
 
 
 module.exports = {
+    getAllUsers,
     getUserProfile,
     editUserProfile,
     getUserAppointments,
