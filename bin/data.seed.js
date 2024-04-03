@@ -67,7 +67,7 @@ const seedAppointments = async () => {
         await Appointment.deleteMany();
         console.log('DB cleaned (appointments)');
 
-        const usersDb = await User.find();
+        const usersDb = await User.find({ role: 'user' }); // Filtrar solo usuarios con role 'user'
         const servicesDb = await Service.find();
         const customersDb = await Customer.find();
 
@@ -93,11 +93,12 @@ const seedAppointments = async () => {
                 continue; // El usuario no está disponible en este horario
             }
 
+            // Consulta para verificar superposiciones
             const appointmentOverlapQuery = {
                 user: user._id,
                 $or: [
-                    { date: { $gte: dateStart, $lt: dateEnd } },
-                    { dateEnd: { $gt: dateStart, $lte: dateEnd } }
+                    { date: { $lt: dateEnd }, dateEnd: { $gt: dateStart } }, // La cita se superpone en algún momento
+                    { date: dateStart, dateEnd: dateEnd } // La cita comienza y termina exactamente al mismo tiempo
                 ]
             };
 
@@ -124,6 +125,7 @@ const seedAppointments = async () => {
         console.log('Error seeding appointments:', error);
     }
 };
+
 
 const generateRandomDate = () => {
     const futureDate = moment.utc().add(7, 'days'); // Genera una fecha dentro de una semana en formato UTC
