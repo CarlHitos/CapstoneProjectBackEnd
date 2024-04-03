@@ -67,7 +67,7 @@ const seedAppointments = async () => {
         await Appointment.deleteMany();
         console.log('DB cleaned (appointments)');
 
-        const usersDb = await User.find({ role: 'user' }); // Filtrar solo usuarios con role 'user'
+        const usersDb = await User.find({ role: 'user' }); 
         const servicesDb = await Service.find();
         const customersDb = await Customer.find();
 
@@ -76,13 +76,13 @@ const seedAppointments = async () => {
             const user = getRandomElement(usersDb);
             const service = getRandomElement(servicesDb);
             const customer = getRandomElement(customersDb);
-            const dateStart = generateRandomDate();
+            let dateStart = generateRandomDate();
             const dateEnd = new Date(dateStart.getTime() + service.duration * 60000);
 
             const userData = user;
             const appointmentDay = dateStart.toLocaleDateString('en-US', { weekday: 'long' });
             if (!userData.schedule.days.includes(appointmentDay)) {
-                continue; // El usuario no está disponible en este día
+                continue; 
             }
 
             const appointmentTime = moment.utc(dateStart).format('HH:mm');
@@ -90,22 +90,22 @@ const seedAppointments = async () => {
             const scheduleEnd = userData.schedule.hours.end;
 
             if (moment(appointmentTime, 'HH:mm').isBefore(moment(scheduleStart, 'HH:mm')) || moment(appointmentTime, 'HH:mm').isAfter(moment(scheduleEnd, 'HH:mm'))) {
-                continue; // El usuario no está disponible en este horario
+                continue; 
             }
 
-            // Consulta para verificar superposiciones
+            // Comprobar overlap
             const appointmentOverlapQuery = {
                 user: user._id,
                 $or: [
-                    { date: { $lt: dateEnd }, dateEnd: { $gt: dateStart } }, // La cita se superpone en algún momento
-                    { date: dateStart, dateEnd: dateEnd } // La cita comienza y termina exactamente al mismo tiempo
+                    { date: { $lt: dateEnd }, dateEnd: { $gt: dateStart } }, 
+                    { date: dateStart, dateEnd: dateEnd } 
                 ]
             };
 
             const existingAppointments = await Appointment.find(appointmentOverlapQuery);
 
-            if (existingAppointments.length > 0) {
-                continue; // Ya hay una cita programada para esta hora y fecha
+            if (existingAppointments.some(existingAppointment => isOverlap(existingAppointment, { date: dateStart, dateEnd: dateEnd }))) {
+                continue; 
             }
 
             appointments.push({
@@ -128,19 +128,19 @@ const seedAppointments = async () => {
 
 
 const generateRandomDate = () => {
-    const futureDate = moment.utc().add(7, 'days'); // Genera una fecha dentro de una semana en formato UTC
-    const startHour = 10; 
-    const endHour = 17;   
-    const randomHour = Math.floor(Math.random() * (endHour - startHour)) + startHour;
+    const today = moment.utc(); 
+    const maxFutureDate = moment.utc().add(1, 'month'); 
+
+
+    const randomDate = moment.utc(today).add(Math.floor(Math.random() * maxFutureDate.diff(today, 'days')), 'days');
+    const randomHour = Math.floor(Math.random() * (17 - 10)) + 10;
     const randomMinute = Math.floor(Math.random() * 2) * 30;
-    const time = moment.utc().set({ hour: randomHour, minute: randomMinute, second: 0, millisecond: 0 });
 
-    const year = futureDate.year();
-    const month = futureDate.month();
-    const day = futureDate.date();
+    randomDate.set({ hour: randomHour, minute: randomMinute, second: 0, millisecond: 0 });
 
-    return time.set({ year, month, date: day }).toDate();
+    return randomDate.toDate();
 };
+
 
 const getRandomElement = array => array[Math.floor(Math.random() * array.length)];
 
