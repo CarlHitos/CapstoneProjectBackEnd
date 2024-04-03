@@ -60,57 +60,59 @@ This command executes a predefined script defined in the package.json file. The 
 
 ## Features: 🔗
 
-* **User Authentication:** Barbers can log in using their credentials securely authenticate using JSON Web Tokens (JWT), which are managed by an admin user. Customers do not need to register or log in to book appointments.
+* **`User Authentication:`** Barbers can log in using their credentials securely authenticate using JSON Web Tokens (JWT), which are managed by an admin user. Customers do not need to register or log in to book appointments.
 
-* **Appointment Management:** Barbers can view their upcoming appointments and cancel them if necessary. Customers can book appointments by providing their details through a form submission. Each appointment includes details such as the user, barber, date, time, and service.
+* **`Appointment Management:`** Barbers can view their upcoming appointments and cancel them if necessary. Customers can book appointments by providing their details through a form submission. Each appointment includes details such as the user, barber, date, time, and service.
 
-* **User Profile Management:** Barbers can manage their profiles by updating personal information such as name, email, phone number and schedule. They can also view their appointment history and upcoming appointments.
+* **`User Profile Management:`** Barbers can manage their profiles by updating personal information such as name, email, phone number and schedule. They can also view their appointment history and upcoming appointments.
 
-* **Service Catalog:** The application provides a catalog of services offered by the barber shop, including details such as the service name, price, duration, and description.
+* **`Service Catalog:`** The application provides a catalog of services offered by the barber shop, including details such as the service name, price, duration, and description.
 
 ## Technologies Used: 💻
 
        Node.JS  |  Express.JS  |  MongoDB |  Mongoose ODM  |  Passport.JS |  Git & GitHub
 
-* **Backend:** Node.js with Express.js framework for building the server-side logic.
-* **Database:** MongoDB with Mongoose ODM for storing and managing application data.
-* **Authentication:** Passport.js for handling user authentication and authorization using JWT.
-* **DevOps:** Git for version control and deployment to platforms like Heroku or AWS for hosting the application.
+* **`Backend:`** Node.js with Express.js framework for building the server-side logic.
+* **`Database:`** MongoDB with Mongoose ODM for storing and managing application data.
+* **`Authentication:`** Passport.js for handling user authentication and authorization using JWT.
+* **`DevOps:`** Git for version control and deployment to platforms like Heroku or AWS for hosting the application.
 
 ## Folder Structure: 📁
 
-* **Config:** Contains configuration files for setting up middleware, database connection, and authentication strategies.
-* **Controllers:** Contains controller functions for handling business logic related to appointments, users, and authentication.
-* **Db:** Includes database configuration and connection setup files.
-* **Error-handling:** Middleware for handling errors and sending appropriate error responses to clients.
-* **Middleware:** Custom middleware functions for tasks like authentication and authorization.
-* **Models:** Contains Mongoose models for defining database schemas for users, appointments, customers and services.
-* **Passport:** Includes Passport.js configuration files for setting up authentication strategies.
-* **Routes:** Express route definitions for defining API endpoints and handling incoming requests.
-* **Utils:** Utility functions, such as password hashing.
+* **`Config:`** Contains configuration files for setting up middleware, database connection, and authentication strategies.
+* **`Controllers:`** Contains controller functions for handling business logic related to appointments, users, and authentication.
+* **`Db:`** Includes database configuration and connection setup files.
+* **`Error-handling:`** Middleware for handling errors and sending appropriate error responses to clients.
+* **`Middleware:`** Custom middleware functions for tasks like authentication and authorization.
+* **`Models:`** Contains Mongoose models for defining database schemas for users, appointments, customers and services.
+* **`Passport:`** Includes Passport.js configuration files for setting up authentication strategies.
+* **`Routes:`** Express route definitions for defining API endpoints and handling incoming requests.
+* **`Utils:`** Utility functions, such as password hashing.
 
 # API Routes 🗺️
 
-## **Appointment routes**:
+## **`Appointment routes`**:
 
 | URL path                               | HTTP Method | Response                     | Action                    |
 | :------------------------------------: | :---------: | :--------------------------: | :-----------------------: |
 | /api/appointments/getAppointments     | GET         | [appointments]               | Get all appointments      |
-| /api/appointments/getInfo/:appointment_id | GET      | {appointment}                | Get appointment details   |
-| /api/appointments/create              | POST        | {createdAppointment}         | Create appointment        |
-| /api/appointments/delete/:appointment_id | DELETE   | {msg: "Appointment successfully deleted!"} | Delete appointment    |
+| /api/appointments/createAppointment   | POST        | {createdAppointment}         | Create one appointment    |
+| /api/appointments/barberAppointments  | GET         | [barberAppointments]        | Get barber appointments  |
+| /api/appointments/delete/:appointment_id | DELETE   | {msg: "Appointment successfully deleted!"} | Delete one appointment |
 
-## **User routes**:
+## **`User routes`**:
 
 | URL path                                     | HTTP Method | Response                    | Action                           |
 | :------------------------------------------: | :---------: | :-------------------------: | :------------------------------: |
+| /api/users/getAllUsers                      | GET         | [allUsers]                  | Get all users                    |
 | /api/users/getUserProfile/:user_id          | GET         | {userProfile}               | Get user profile                 |
 | /api/users/editUserProfile/:user_id         | PUT         | {editedUserProfile}         | Edit user profile                |
 | /api/users/getUserAppointments/:user_id      | GET         | [userAppointments]          | Get user appointments            |
 | /api/users/getUserAppointmentDetails/:appointment_id | GET | {appointmentDetails}   | Get user appointment details    |
-| /api/users/cancelOneAppointment/:appointment_id     | DELETE | {msg: "Appointment successfully cancelled!"} | Cancel user appointment |
+| /api/users/updateAppointmentStatus/:appointment_id | PUT | {updatedStatus}           | Update appointment status       |
 
-## **Auth routes**:
+
+## **`Auth routes`**:
 
 | URL path                    | HTTP Method | Response                           | Action                         |
 | :--------------------------:|:-----------:| :---------------------------------:| :----------------------------: |
@@ -119,7 +121,7 @@ This command executes a predefined script defined in the package.json file. The 
 | /api/auth/signup           | POST        | {createdUser}                    | Sign up user                  |
 | /api/auth/verify           | POST        | {verifiedUser}                   | Verify user credentials       |
 
-## **Customer routes**:
+## **`Customer routes`**:
 
 | URL path                                     | HTTP Method | Response                    | Action                           |
 | :------------------------------------------: | :---------: | :-------------------------: | :------------------------------: |
@@ -128,8 +130,9 @@ This command executes a predefined script defined in the package.json file. The 
 | /api/customers/editOneCustomer/:customer_id  | PUT         | {editedCustomer}            | Edit one customer                |
 | /api/customers/deleteOneCustomer/:customer_id| DELETE      | {msg: "Customer deleted"}   | Delete one customer              |
 | /api/customers/cancelAppointment/:appointment_id | DELETE | {msg: "Appointment canceled successfully"} | Cancel appointment for customer |
+    Note: These routes require the user to have an 'admin' role for access. Unauthorized access will result in a 403 Forbidden error.
 
-## **Service routes**:
+## **`Service routes`**:
 
 | URL path                               | HTTP Method | Response                     | Action                    |
 | :------------------------------------: | :---------: | :--------------------------: | :-----------------------: |
@@ -137,6 +140,7 @@ This command executes a predefined script defined in the package.json file. The 
 | /api/services/createService            | POST        | [createdService]             | Create a new service      |
 | /api/services/editService/:service_id  | PUT         | [updatedService]             | Edit a service            |
 | /api/services/deleteService/:service_id| DELETE      | {msg: "Service deleted"}     | Delete a service          |
+      Note: The routes for creating, editing, and deleting services require the user to have an 'admin' role for access. Unauthorized access will result in a 403 Forbidden error.
 
 ## Postman Collection and Environment
 
@@ -153,13 +157,13 @@ You can download the Postman collection and environment files to test the API en
 
 ## Future Enhancements 🚀
 
-* *Implement user registration and login for customers to manage their appointments.*
-* *Integrate OAuth services like Google login for enhanced authentication options.*
-* *Implement email notifications for appointment reminders and confirmations.*
-* *Implement payment gateway integration for online payments.*
-* *Enhance user interface with modern design principles and responsive layouts.*
-* *Implement functionality to manage multiple branches or locations for the barber shop. This would allow the business to expand and operate across different areas, with each location having its own set of barbers, services, and appointments.*
-* *Implement automated deployment pipelines integrated with cloud platforms such as AWS, Google Cloud, or Azure. This would streamline the deployment process, allowing for easy scaling and management of the application in a cloud environment.*
+* `Implement user registration and login for customers to manage their appointments.`
+* `Integrate OAuth services like Google login for enhanced authentication options.`
+* `Implement email notifications for appointment reminders and confirmations.`
+* `Implement payment gateway integration for online payments.`
+* `Enhance user interface with modern design principles and responsive layouts.`
+* `Implement functionality to manage multiple branches or locations for the barber shop. This would allow the business to expand and operate across different areas, with each location having its own set of barbers, services, and appointments.`
+* `Implement automated deployment pipelines integrated with cloud platforms such as AWS, Google Cloud, or Azure. This would streamline the deployment process, allowing for easy scaling and management of the application in a cloud environment.`
 
 ## In Progress
 
